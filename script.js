@@ -17,7 +17,7 @@
         if (saved && ['light', 'dark'].includes(saved)) {
             return saved;
         }
-        return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+        return 'light';
     }
     
     function setTheme(theme) {
