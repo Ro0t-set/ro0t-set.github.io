@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="it" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Tommaso Patriti | Software Engineer Freelance Bologna - Microservizi & Cloud</title>
+    <meta name="description" content="Tommaso Patriti, Software Engineer Freelance a Bologna. Specializzato in sistemi distribuiti, microservizi, architetture cloud-native e clean code. P.IVA 04291431205">
+    <meta name="keywords" content="software engineer, freelance, Bologna, microservizi, cloud, kubernetes, docker, java, kotlin, go, sviluppatore">
+    <meta name="author" content="Tommaso Patriti">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Social -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tommasopatriti.me/">
+    <meta property="og:title" content="Tommaso Patriti | Software Engineer Freelance Bologna">
+    <meta property="og:description" content="Software Engineer specializzato in sistemi distribuiti, microservizi e architetture cloud-native.">
+    <meta property="og:image" content="https://tommasopatriti.me/og-image.png">
+    <meta property="og:locale" content="it_IT">
+    <meta property="og:locale:alternate" content="en_US">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Tommaso Patriti | Software Engineer Freelance">
+    <meta name="twitter:description" content="Software Engineer specializzato in sistemi distribuiti, microservizi e architetture cloud-native.">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://tommasopatriti.me/">
+    <link rel="alternate" hreflang="it" href="https://tommasopatriti.me/">
+    <link rel="alternate" hreflang="en" href="https://tommasopatriti.me/en/">
+    <link rel="alternate" hreflang="x-default" href="https://tommasopatriti.me/">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E👨‍💻%3C/text%3E%3C/svg%3E">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8JSLCWYJYF"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-8JSLCWYJYF');
+    </script>
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Tommaso Patriti",
+        "url": "https://tommasopatriti.me",
+        "jobTitle": "Software Engineer",
+        "worksFor": {
+            "@type": "Organization",
+            "name": "Freelance"
+        },
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Bologna",
+            "addressCountry": "IT"
+        },
+        "taxID": "04291431205",
+        "sameAs": [
+            "https://github.com/Ro0t-set",
+            "https://www.linkedin.com/in/tommaso-patriti/"
+        ],
+        "knowsAbout": ["Microservices", "Distributed Systems", "Cloud Computing", "Java", "Kotlin", "Go", "Docker", "Kubernetes"]
+    }
+    </script>
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+        <div class="nav-left">
+            <span class="nav-logo">TP</span>
+        </div>
+        <div class="nav-right">
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                <i data-lucide="sun" class="theme-icon-light"></i>
+                <i data-lucide="moon" class="theme-icon-dark"></i>
+            </button>
+            <div class="lang-switcher">
+                <button class="lang-btn active" data-lang="it" aria-label="Italiano">IT</button>
+                <span class="lang-divider">/</span>
+                <button class="lang-btn" data-lang="en" aria-label="English">EN</button>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <header class="hero">
+            <div class="hero-content">
+                <div class="status">
+                    <span class="status-dot"></span>
+                    <span data-it="Disponibile per progetti" data-en="Available for projects">Disponibile per progetti</span>
+                </div>
+                
+                <h1 class="name">Tommaso Patriti</h1>
+                <p class="tagline" data-it="Software Engineer Freelance" data-en="Freelance Software Engineer">Software Engineer Freelance</p>
+                
+                <p class="location">
+                    <i data-lucide="map-pin"></i>
+                    Bologna, Italia
+                </p>
+                
+                <div class="hero-links">
+                    <a href="mailto:tommasopatriti@gmail.com" class="btn btn-primary">
+                        <i data-lucide="mail"></i>
+                        <span data-it="Contattami" data-en="Contact me">Contattami</span>
+                    </a>
+                    <a href="https://github.com/Ro0t-set" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                        <i data-lucide="github"></i>
+                        <span>GitHub</span>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="hero-visual">
+                <div class="profile-photo-container">
+                    <img src="https://avatars.githubusercontent.com/u/14377433?v=4" alt="Tommaso Patriti" class="profile-photo" loading="eager">
+                </div>
+            </div>
+        </header>
+        
+        <!-- About Section -->
+        <section class="section" aria-labelledby="about-heading">
+            <h2 id="about-heading" class="section-title" data-it="Chi sono" data-en="About me">Chi sono</h2>
+            <p class="section-text" data-it="Ingegnere informatico con la passione per il codice pulito ed elegante. Mi occupo di sistemi distribuiti e microservizi, trasformando architetture over-engineered in soluzioni semplici e manutenibili. La semplicità non è solo un obiettivo, è una filosofia." data-en="Computer Engineer passionate about clean and elegant code. I work with distributed systems and microservices, transforming over-engineered architectures into simple, maintainable solutions. Simplicity isn't just a goal, it's a philosophy.">
+                Ingegnere informatico con la passione per il codice pulito ed elegante. Mi occupo di sistemi distribuiti e microservizi, trasformando architetture over-engineered in soluzioni semplici e manutenibili. La semplicità non è solo un obiettivo, è una filosofia.
+            </p>
+        </section>
+        
+        <!-- Freelance Projects Section -->
+        <section class="section" aria-labelledby="freelance-heading">
+            <h2 id="freelance-heading" class="section-title" data-it="Progetti Freelance" data-en="Freelance Projects">Progetti Freelance</h2>
+            
+            <div class="freelance-grid">
+                <article class="freelance-card">
+                    <div class="freelance-header">
+                        <div class="freelance-meta">
+                            <span class="freelance-year">2025</span>
+                            <span class="freelance-client">Elaria</span>
+                        </div>
+                        <a href="https://elaria.it" target="_blank" rel="noopener noreferrer" class="freelance-link" aria-label="Visita Elaria">
+                            <i data-lucide="external-link"></i>
+                        </a>
+                    </div>
+                    <h3>Elaria</h3>
+                    <p data-it="Progettazione e sviluppo di un'infrastruttura a microservizi basata su Spring Boot e Docker Swarm, finalizzata alla creazione di un gestionale altamente modulare, scalabile ed espandibile." data-en="Design and development of a microservices infrastructure based on Spring Boot and Docker Swarm for creating a highly modular, scalable and expandable management system.">Progettazione e sviluppo di un'infrastruttura a microservizi basata su Spring Boot e Docker Swarm, finalizzata alla creazione di un gestionale altamente modulare, scalabile ed espandibile.</p>
+                    <div class="freelance-tech">
+                        <span>Spring Boot</span>
+                        <span>Docker Swarm</span>
+                        <span>Traefik</span>
+                        <span>Keycloak</span>
+                        <span>Grafana</span>
+                    </div>
+                </article>
+                
+                <article class="freelance-card">
+                    <div class="freelance-header">
+                        <div class="freelance-meta">
+                            <span class="freelance-year">2025</span>
+                            <span class="freelance-client" data-it="Università di Bologna" data-en="University of Bologna">Università di Bologna</span>
+                        </div>
+                        <a href="https://bandi.unibo.it/s/disi/disi-incarico-di-lavoro-autonomo-di-natura-libero-professionale-partita-iva-della-durata-di-4-mesi-480-ore-collaborazione-per-attivita-di-sviluppo-software-nell-ambito-di-una-piattaforma-per-la-prevenzione-dell-abbandono-universitario-basata-su" target="_blank" rel="noopener noreferrer" class="freelance-link" aria-label="Vedi bando">
+                            <i data-lucide="external-link"></i>
+                        </a>
+                    </div>
+                    <h3>React Frontend</h3>
+                    <p data-it="Sviluppo del frontend React per una piattaforma per la prevenzione dell'abbandono universitario basata su analisi predittive e sistemi di supporto agli studenti." data-en="React frontend development for a platform preventing university dropout based on predictive analytics and student support systems.">Sviluppo del frontend React per una piattaforma per la prevenzione dell'abbandono universitario basata su analisi predittive e sistemi di supporto agli studenti.</p>
+                    <div class="freelance-tech">
+                        <span>React</span>
+                        <span>TypeScript</span>
+                        <span>Frontend</span>
+                    </div>
+                </article>
+                
+                <article class="freelance-card">
+                    <div class="freelance-header">
+                        <div class="freelance-meta">
+                            <span class="freelance-year">2025</span>
+                            <span class="freelance-client" data-it="Università di Bologna" data-en="University of Bologna">Università di Bologna</span>
+                        </div>
+                        <a href="https://www.unibo.it/it/ricerca/progetti-e-iniziative/pr-fesr-emilia-romagna-2021-2027/1223/20430/20607" target="_blank" rel="noopener noreferrer" class="freelance-link" aria-label="Vedi progetto">
+                            <i data-lucide="external-link"></i>
+                        </a>
+                    </div>
+                    <h3>Discov.er</h3>
+                    <p data-it="Progetto di ricerca industriale strategica DISCOV.ER (PR FESR 2021–2027). Sviluppo di modelli di simulazione e previsione di dati ambientali con tecniche di AI e Machine Learning." data-en="Strategic industrial research project DISCOV.ER (PR FESR 2021–2027). Development of simulation and prediction models for environmental data using AI and Machine Learning techniques.">Progetto di ricerca industriale strategica DISCOV.ER (PR FESR 2021–2027). Sviluppo di modelli di simulazione e previsione di dati ambientali con tecniche di AI e Machine Learning.</p>
+                    <div class="freelance-tech">
+                        <span>AI</span>
+                        <span>Machine Learning</span>
+                        <span>Python</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+        
+        <!-- Services Section -->
+        <section class="section" aria-labelledby="services-heading">
+            <h2 id="services-heading" class="section-title" data-it="Servizi" data-en="Services">Servizi</h2>
+            
+            <div class="services-grid">
+                <article class="service-card">
+                    <i data-lucide="boxes" class="service-icon"></i>
+                    <h3 data-it="Architetture Microservizi" data-en="Microservices Architecture">Architetture Microservizi</h3>
+                    <p data-it="Progettazione e sviluppo di architetture distribuite scalabili, resilienti e manutenibili." data-en="Design and development of scalable, resilient, and maintainable distributed architectures.">Progettazione e sviluppo di architetture distribuite scalabili, resilienti e manutenibili.</p>
+                </article>
+                
+                <article class="service-card">
+                    <i data-lucide="cloud" class="service-icon"></i>
+                    <h3 data-it="Cloud & DevOps" data-en="Cloud & DevOps">Cloud & DevOps</h3>
+                    <p data-it="Implementazione di infrastrutture cloud-native con Docker, Kubernetes e CI/CD pipelines." data-en="Implementation of cloud-native infrastructures with Docker, Kubernetes, and CI/CD pipelines.">Implementazione di infrastrutture cloud-native con Docker, Kubernetes e CI/CD pipelines.</p>
+                </article>
+                
+                <article class="service-card">
+                    <i data-lucide="code-2" class="service-icon"></i>
+                    <h3 data-it="Backend Development" data-en="Backend Development">Backend Development</h3>
+                    <p data-it="Sistemi backend ad alte prestazioni in Java, Kotlin, Go e Python con focus su clean code." data-en="High-performance backend systems in Java, Kotlin, Go, and Python with a focus on clean code.">Sistemi backend ad alte prestazioni in Java, Kotlin, Go e Python con focus su clean code.</p>
+                </article>
+                
+                <article class="service-card">
+                    <i data-lucide="shrink" class="service-icon"></i>
+                    <h3 data-it="Semplificazione Infrastrutture" data-en="Infrastructure Simplification">Semplificazione Infrastrutture</h3>
+                    <p data-it="Migrazione da Kubernetes over-engineered a Docker Swarm per aziende con meno di 10.000 utenti." data-en="Migration from over-engineered Kubernetes to Docker Swarm for companies with under 10,000 users.">Migrazione da Kubernetes over-engineered a Docker Swarm per aziende con meno di 10.000 utenti.</p>
+                </article>
+            </div>
+        </section>
+        
+        <!-- Experience Section -->
+        <section class="section" aria-labelledby="experience-heading">
+            <h2 id="experience-heading" class="section-title" data-it="Esperienza" data-en="Experience">Esperienza</h2>
+            
+            <div class="timeline">
+                <article class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2024 — <span data-it="Presente" data-en="Present">Presente</span></span>
+                        <h3 data-it="Software Engineer Freelance" data-en="Freelance Software Engineer">Software Engineer Freelance</h3>
+                        <p class="timeline-company">Bologna, Italia</p>
+                        <p class="timeline-desc" data-it="Progettazione e sviluppo di architetture microservizi, sistemi distribuiti e soluzioni cloud-native." data-en="Design and development of microservices architectures, distributed systems and cloud-native solutions.">Progettazione e sviluppo di architetture microservizi, sistemi distribuiti e soluzioni cloud-native.</p>
+                    </div>
+                </article>
+                
+                <article class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2024</span>
+                        <h3 data-it="Cloud Engineer — Tirocinio" data-en="Cloud Engineer — Internship">Cloud Engineer — Tirocinio</h3>
+                        <p class="timeline-company">Dallara Automobili</p>
+                        <p class="timeline-desc" data-it="Sistema Simulation as a Service con architettura microservizi. Autoscaling con KEDA, Prometheus e Kubernetes. Backend in Golang." data-en="Simulation as a Service system with microservices architecture. Autoscaling with KEDA, Prometheus and Kubernetes. Backend in Golang.">Sistema Simulation as a Service con architettura microservizi. Autoscaling con KEDA, Prometheus e Kubernetes. Backend in Golang.</p>
+                    </div>
+                </article>
+                
+                <article class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2023 — 2024</span>
+                        <h3 data-it="Tutor Universitario" data-en="University Tutor">Tutor Universitario</h3>
+                        <p class="timeline-company">Università di Bologna</p>
+                        <p class="timeline-desc" data-it="Supporto alla didattica per studenti con DSA." data-en="Teaching support for students with learning disabilities.">Supporto alla didattica per studenti con DSA.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+        
+        <!-- Education Section -->
+        <section class="section" aria-labelledby="education-heading">
+            <h2 id="education-heading" class="section-title" data-it="Formazione" data-en="Education">Formazione</h2>
+            
+            <div class="timeline">
+                <article class="timeline-item">
+                    <div class="timeline-marker edu"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2022 — 2025</span>
+                        <h3 data-it="Laurea Magistrale in Ingegneria e Scienze Informatiche" data-en="Master's Degree in Computer Science and Engineering">Laurea Magistrale in Ingegneria e Scienze Informatiche</h3>
+                        <p class="timeline-company">Università di Bologna — <strong>110L</strong></p>
+                        <p class="timeline-desc" data-it="Focus su sistemi distribuiti, architetture software, machine learning. Tesi su simulazioni cloud distribuite." data-en="Focus on distributed systems, software architecture, machine learning. Thesis on distributed cloud simulations.">Focus su sistemi distribuiti, architetture software, machine learning. Tesi su simulazioni cloud distribuite.</p>
+                    </div>
+                </article>
+                
+                <article class="timeline-item">
+                    <div class="timeline-marker edu"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2023</span>
+                        <h3 data-it="Erasmus+ — Master in Data Science" data-en="Erasmus+ — Master's in Data Science">Erasmus+ — Master in Data Science</h3>
+                        <p class="timeline-company">UPC Barcelona</p>
+                        <p class="timeline-desc" data-it="Business Intelligence, Data Mining, Cybersecurity." data-en="Business Intelligence, Data Mining, Cybersecurity.">Business Intelligence, Data Mining, Cybersecurity.</p>
+                    </div>
+                </article>
+                
+                <article class="timeline-item">
+                    <div class="timeline-marker edu"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2019 — 2022</span>
+                        <h3 data-it="Laurea Triennale in Ingegneria e Scienze Informatiche" data-en="Bachelor's Degree in Computer Science and Engineering">Laurea Triennale in Ingegneria e Scienze Informatiche</h3>
+                        <p class="timeline-company">Università di Bologna — <strong>103</strong></p>
+                        <p class="timeline-desc" data-it="Tesi su LoRa Mesh per comunicazione IoT. Pubblicazione IEEE CCNC 2023." data-en="Thesis on LoRa Mesh for IoT communication. IEEE CCNC 2023 publication.">Tesi su LoRa Mesh per comunicazione IoT. Pubblicazione IEEE CCNC 2023.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+        
+        <!-- Tech Stack Section -->
+        <section class="section" aria-labelledby="tech-heading">
+            <h2 id="tech-heading" class="section-title" data-it="Stack Tecnologico" data-en="Tech Stack">Stack Tecnologico</h2>
+            
+            <div class="tech-grid">
+                <div class="tech-category">
+                    <h3 data-it="Linguaggi" data-en="Languages">Linguaggi</h3>
+                    <div class="tech-tags">
+                        <span>Java</span><span>Kotlin</span><span>Go</span><span>Python</span><span>Scala</span><span>TypeScript</span>
+                    </div>
+                </div>
+                <div class="tech-category">
+                    <h3 data-it="Framework" data-en="Frameworks">Framework</h3>
+                    <div class="tech-tags">
+                        <span>Spring Boot</span><span>Micronaut</span><span>Node.js</span><span>Vue.js</span><span>React</span>
+                    </div>
+                </div>
+                <div class="tech-category">
+                    <h3>DevOps</h3>
+                    <div class="tech-tags">
+                        <span>Docker</span><span>Kubernetes</span><span>Docker Swarm</span><span>Traefik</span><span>GitHub Actions</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Open Source Projects Section -->
+        <section class="section" aria-labelledby="projects-heading">
+            <h2 id="projects-heading" class="section-title" data-it="Open Source" data-en="Open Source">Open Source</h2>
+            
+            <div class="projects-grid">
+                <a href="https://github.com/zucchero-sintattico/piper-kt" target="_blank" rel="noopener noreferrer" class="project-card">
+                    <div class="project-header">
+                        <i data-lucide="message-square" class="project-icon"></i>
+                        <span class="project-lang">Kotlin</span>
+                    </div>
+                    <h3>piper-kt</h3>
+                    <p data-it="App chat microservizi" data-en="Microservices chat app">App chat microservizi</p>
+                    <span class="project-stars"><i data-lucide="star"></i> 13</span>
+                </a>
+                
+                <a href="https://github.com/zucchero-sintattico/piperchat" target="_blank" rel="noopener noreferrer" class="project-card">
+                    <div class="project-header">
+                        <i data-lucide="video" class="project-icon"></i>
+                        <span class="project-lang">TypeScript</span>
+                    </div>
+                    <h3>piperchat</h3>
+                    <p data-it="Chat con WebRTC" data-en="Chat with WebRTC">Chat con WebRTC</p>
+                    <span class="project-stars"><i data-lucide="star"></i> 16</span>
+                </a>
+                
+                <a href="https://github.com/zucchero-sintattico/OOP20-Jhaturanga" target="_blank" rel="noopener noreferrer" class="project-card">
+                    <div class="project-header">
+                        <i data-lucide="crown" class="project-icon"></i>
+                        <span class="project-lang">Java</span>
+                    </div>
+                    <h3>Jhaturanga</h3>
+                    <p data-it="Gioco di scacchi" data-en="Chess game">Gioco di scacchi</p>
+                    <span class="project-stars"><i data-lucide="star"></i> 10</span>
+                </a>
+                
+                <a href="https://github.com/Ro0t-set/PPS-24-ScafiWeb3" target="_blank" rel="noopener noreferrer" class="project-card">
+                    <div class="project-header">
+                        <i data-lucide="globe" class="project-icon"></i>
+                        <span class="project-lang">Scala</span>
+                    </div>
+                    <h3>ScafiWeb3</h3>
+                    <p data-it="Framework 3D aggregato" data-en="3D aggregate framework">Framework 3D aggregato</p>
+                    <span class="project-stars"><i data-lucide="star"></i> 8</span>
+                </a>
+            </div>
+            
+            <a href="https://github.com/Ro0t-set" target="_blank" rel="noopener noreferrer" class="link-more">
+                <span data-it="Vedi tutti su GitHub" data-en="View all on GitHub">Vedi tutti su GitHub</span>
+                <i data-lucide="arrow-right"></i>
+            </a>
+        </section>
+        
+        <!-- Contact Section -->
+        <section class="section" aria-labelledby="contact-heading">
+            <h2 id="contact-heading" class="section-title" data-it="Contatti" data-en="Contact">Contatti</h2>
+            
+            <p class="section-text" data-it="Hai un progetto interessante? Parliamone." data-en="Have an interesting project? Let's talk.">Hai un progetto interessante? Parliamone.</p>
+            
+            <div class="contact-links">
+                <a href="mailto:tommasopatriti@gmail.com" class="contact-link">
+                    <i data-lucide="mail"></i>
+                    <span>tommasopatriti@gmail.com</span>
+                </a>
+                <a href="https://github.com/Ro0t-set" target="_blank" rel="noopener noreferrer" class="contact-link">
+                    <i data-lucide="github"></i>
+                    <span>GitHub</span>
+                </a>
+                <a href="https://www.linkedin.com/in/tommaso-patriti/" target="_blank" rel="noopener noreferrer" class="contact-link">
+                    <i data-lucide="linkedin"></i>
+                    <span>LinkedIn</span>
+                </a>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-main">
+            <p>© 2025 Tommaso Patriti</p>
+            <p class="footer-vat">P.IVA 04291431205</p>
+        </div>
+        <div class="footer-links">
+            <a href="#privacy" id="privacyLink" data-it="Privacy Policy" data-en="Privacy Policy">Privacy Policy</a>
+            <span>·</span>
+            <a href="#terms" id="termsLink" data-it="Termini e Condizioni" data-en="Terms and Conditions">Termini e Condizioni</a>
+        </div>
+    </footer>
+    
+    <!-- Privacy Modal -->
+    <div class="modal" id="privacyModal">
+        <div class="modal-content">
+            <button class="modal-close" id="closePrivacy" aria-label="Chiudi">
+                <i data-lucide="x"></i>
+            </button>
+            <h2 data-it="Privacy Policy" data-en="Privacy Policy">Privacy Policy</h2>
+            <div class="modal-body">
+                <p data-it="Ultimo aggiornamento: Gennaio 2025" data-en="Last updated: January 2025">Ultimo aggiornamento: Gennaio 2025</p>
+                
+                <h3 data-it="Titolare del trattamento" data-en="Data Controller">Titolare del trattamento</h3>
+                <p>Tommaso Patriti<br>P.IVA 04291431205<br>Email: tommasopatriti@gmail.com</p>
+                
+                <h3 data-it="Dati raccolti" data-en="Data collected">Dati raccolti</h3>
+                <p data-it="Questo sito utilizza Google Analytics per raccogliere dati anonimi sulla navigazione, inclusi:" data-en="This website uses Google Analytics to collect anonymous browsing data, including:">Questo sito utilizza Google Analytics per raccogliere dati anonimi sulla navigazione, inclusi:</p>
+                <ul>
+                    <li data-it="Pagine visitate" data-en="Pages visited">Pagine visitate</li>
+                    <li data-it="Durata della sessione" data-en="Session duration">Durata della sessione</li>
+                    <li data-it="Tipo di dispositivo e browser" data-en="Device and browser type">Tipo di dispositivo e browser</li>
+                    <li data-it="Paese di provenienza (anonimizzato)" data-en="Country of origin (anonymized)">Paese di provenienza (anonimizzato)</li>
+                </ul>
+                
+                <h3>Cookie</h3>
+                <p data-it="Utilizziamo cookie tecnici necessari al funzionamento del sito e cookie analitici di Google Analytics. Puoi disabilitare i cookie dalle impostazioni del tuo browser." data-en="We use technical cookies necessary for the website operation and Google Analytics analytical cookies. You can disable cookies from your browser settings.">Utilizziamo cookie tecnici necessari al funzionamento del sito e cookie analitici di Google Analytics. Puoi disabilitare i cookie dalle impostazioni del tuo browser.</p>
+                
+                <h3 data-it="I tuoi diritti" data-en="Your rights">I tuoi diritti</h3>
+                <p data-it="Ai sensi del GDPR hai diritto di accesso, rettifica, cancellazione e portabilità dei tuoi dati. Contattami via email per esercitare questi diritti." data-en="Under GDPR you have the right to access, rectify, delete and port your data. Contact me via email to exercise these rights.">Ai sensi del GDPR hai diritto di accesso, rettifica, cancellazione e portabilità dei tuoi dati. Contattami via email per esercitare questi diritti.</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Terms Modal -->
+    <div class="modal" id="termsModal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeTerms" aria-label="Chiudi">
+                <i data-lucide="x"></i>
+            </button>
+            <h2 data-it="Termini e Condizioni" data-en="Terms and Conditions">Termini e Condizioni</h2>
+            <div class="modal-body">
+                <p data-it="Ultimo aggiornamento: Gennaio 2025" data-en="Last updated: January 2025">Ultimo aggiornamento: Gennaio 2025</p>
+                
+                <h3 data-it="Informazioni generali" data-en="General information">Informazioni generali</h3>
+                <p data-it="Questo sito web è di proprietà di Tommaso Patriti, libero professionista con P.IVA 04291431205." data-en="This website is owned by Tommaso Patriti, freelance professional with VAT number 04291431205.">Questo sito web è di proprietà di Tommaso Patriti, libero professionista con P.IVA 04291431205.</p>
+                
+                <h3 data-it="Contenuti" data-en="Content">Contenuti</h3>
+                <p data-it="I contenuti di questo sito hanno scopo informativo e promozionale. Le informazioni sui progetti e servizi sono fornite a titolo indicativo." data-en="The contents of this site are for informational and promotional purposes. Information about projects and services is provided for indicative purposes.">I contenuti di questo sito hanno scopo informativo e promozionale. Le informazioni sui progetti e servizi sono fornite a titolo indicativo.</p>
+                
+                <h3 data-it="Proprietà intellettuale" data-en="Intellectual property">Proprietà intellettuale</h3>
+                <p data-it="Tutti i contenuti originali di questo sito sono protetti da copyright. È vietata la riproduzione senza autorizzazione." data-en="All original content on this site is protected by copyright. Reproduction without authorization is prohibited.">Tutti i contenuti originali di questo sito sono protetti da copyright. È vietata la riproduzione senza autorizzazione.</p>
+                
+                <h3 data-it="Limitazione di responsabilità" data-en="Limitation of liability">Limitazione di responsabilità</h3>
+                <p data-it="Non sono responsabile per eventuali danni derivanti dall'uso di questo sito o delle informazioni in esso contenute." data-en="I am not responsible for any damages arising from the use of this website or the information contained therein.">Non sono responsabile per eventuali danni derivanti dall'uso di questo sito o delle informazioni in esso contenute.</p>
+                
+                <h3 data-it="Legge applicabile" data-en="Applicable law">Legge applicabile</h3>
+                <p data-it="Questi termini sono regolati dalla legge italiana. Per qualsiasi controversia è competente il Foro di Bologna." data-en="These terms are governed by Italian law. For any dispute, the Court of Bologna has jurisdiction.">Questi termini sono regolati dalla legge italiana. Per qualsiasi controversia è competente il Foro di Bologna.</p>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
