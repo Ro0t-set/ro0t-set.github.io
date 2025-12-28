@@ -178,14 +178,114 @@
     }
 
     // ==========================================================================
+    // Interactive Terminal Animation
+    // ==========================================================================
+
+    const terminalCommands = [
+        {
+            cmd: 'whoami',
+            output: '<span class="info">tommaso.patriti</span> — Software Engineer'
+        },
+        {
+            cmd: 'cat skills.json | jq',
+            output: '<span class="highlight">{</span> microservices, cloud, clean-code <span class="highlight">}</span>'
+        },
+        {
+            cmd: 'docker ps --filter "status=running"',
+            output: '<span class="success">3 services running</span> — API, Auth, Gateway'
+        },
+        {
+            cmd: 'git log --oneline -1',
+            output: '<span class="info">feat:</span> simplify over-engineered architecture'
+        },
+        {
+            cmd: 'kubectl get pods -n production',
+            output: '<span class="success">All pods healthy</span> — 99.9% uptime'
+        }
+    ];
+
+    function initTerminal() {
+        const commandEl = document.getElementById('terminalCommand');
+        const outputEl = document.getElementById('terminalOutput');
+
+        if (!commandEl || !outputEl) return;
+
+        let currentIndex = 0;
+
+        function typeCommand(text, callback) {
+            let i = 0;
+            commandEl.textContent = '';
+            outputEl.classList.remove('visible');
+            outputEl.innerHTML = '';
+
+            function type() {
+                if (i < text.length) {
+                    commandEl.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(type, 50 + Math.random() * 50);
+                } else {
+                    setTimeout(callback, 400);
+                }
+            }
+            type();
+        }
+
+        function showOutput(html) {
+            outputEl.innerHTML = html;
+            outputEl.classList.add('visible');
+        }
+
+        function runSequence() {
+            const current = terminalCommands[currentIndex];
+
+            typeCommand(current.cmd, () => {
+                showOutput(current.output);
+                currentIndex = (currentIndex + 1) % terminalCommands.length;
+                setTimeout(runSequence, 3000);
+            });
+        }
+
+        setTimeout(runSequence, 1000);
+    }
+
+    // ==========================================================================
+    // Scroll Reveal Animations
+    // ==========================================================================
+
+    function initScrollReveal() {
+        const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .reveal-stagger');
+
+        if (!revealElements.length) return;
+
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px 0px -80px 0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        revealElements.forEach(el => observer.observe(el));
+    }
+
+    // ==========================================================================
     // Initialize
     // ==========================================================================
-    
+
     function init() {
         initTheme();
         initLanguage();
         initModals();
-        
+        initTerminal();
+        initScrollReveal();
+
         // Initialize Lucide icons
         if (typeof lucide !== 'undefined') {
             lucide.createIcons();

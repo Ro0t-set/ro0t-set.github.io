@@ -126,8 +126,28 @@
                         <span>GitHub</span>
                     </a>
                 </div>
+
+                <!-- Interactive Terminal -->
+                <div class="terminal-widget">
+                    <div class="terminal-header">
+                        <div class="terminal-dots">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                        </div>
+                        <span class="terminal-title">tommaso@dev ~ </span>
+                    </div>
+                    <div class="terminal-body">
+                        <div class="terminal-line">
+                            <span class="terminal-prompt">$</span>
+                            <span class="terminal-command" id="terminalCommand"></span>
+                            <span class="terminal-cursor">_</span>
+                        </div>
+                        <div class="terminal-output" id="terminalOutput"></div>
+                    </div>
+                </div>
             </div>
-            
+
             <div class="hero-visual">
                 <div class="profile-photo-container">
                     <img src="https://avatars.githubusercontent.com/u/14377433?v=4" alt="Tommaso Patriti" class="profile-photo" loading="eager">
@@ -136,7 +156,7 @@
         </header>
         
         <!-- About Section -->
-        <section class="section" aria-labelledby="about-heading">
+        <section class="section reveal" aria-labelledby="about-heading">
             <h2 id="about-heading" class="section-title" data-it="Chi sono" data-en="About me">Chi sono</h2>
             <p class="section-text" data-it="Ingegnere informatico con la passione per il codice pulito ed elegante. Mi occupo di sistemi distribuiti e microservizi, trasformando architetture over-engineered in soluzioni semplici e manutenibili. La semplicità non è solo un obiettivo, è una filosofia." data-en="Computer Engineer passionate about clean and elegant code. I work with distributed systems and microservices, transforming over-engineered architectures into simple, maintainable solutions. Simplicity isn't just a goal, it's a philosophy.">
                 Ingegnere informatico con la passione per il codice pulito ed elegante. Mi occupo di sistemi distribuiti e microservizi, trasformando architetture over-engineered in soluzioni semplici e manutenibili. La semplicità non è solo un obiettivo, è una filosofia.
@@ -144,10 +164,10 @@
         </section>
 
         <!-- Services Section -->
-        <section class="section" aria-labelledby="services-heading">
+        <section class="section reveal" aria-labelledby="services-heading">
             <h2 id="services-heading" class="section-title" data-it="Servizi" data-en="Services">Servizi</h2>
 
-            <div class="services-grid">
+            <div class="services-grid reveal-stagger">
                 <article class="service-card">
                     <i data-lucide="boxes" class="service-icon"></i>
                     <h3 data-it="Architetture Microservizi" data-en="Microservices Architecture">Architetture Microservizi</h3>
@@ -175,10 +195,10 @@
         </section>
 
         <!-- Freelance Projects Section -->
-        <section class="section" aria-labelledby="freelance-heading">
+        <section class="section reveal" aria-labelledby="freelance-heading">
             <h2 id="freelance-heading" class="section-title" data-it="Progetti Freelance" data-en="Freelance Projects">Progetti Freelance</h2>
-            
-            <div class="freelance-grid">
+
+            <div class="freelance-grid reveal-stagger">
                 <article class="freelance-card">
                     <div class="freelance-header">
                         <div class="freelance-meta">
@@ -241,10 +261,10 @@
         </section>
 
         <!-- Experience Section -->
-        <section class="section" aria-labelledby="experience-heading">
+        <section class="section reveal" aria-labelledby="experience-heading">
             <h2 id="experience-heading" class="section-title" data-it="Esperienza" data-en="Experience">Esperienza</h2>
-            
-            <div class="timeline">
+
+            <div class="timeline reveal-stagger">
                 <article class="timeline-item">
                     <div class="timeline-marker"></div>
                     <div class="timeline-content">
@@ -278,10 +298,10 @@
         </section>
         
         <!-- Education Section -->
-        <section class="section" aria-labelledby="education-heading">
+        <section class="section reveal" aria-labelledby="education-heading">
             <h2 id="education-heading" class="section-title" data-it="Formazione" data-en="Education">Formazione</h2>
-            
-            <div class="timeline">
+
+            <div class="timeline reveal-stagger">
                 <article class="timeline-item">
                     <div class="timeline-marker edu"></div>
                     <div class="timeline-content">
@@ -315,10 +335,10 @@
         </section>
         
         <!-- Tech Stack Section -->
-        <section class="section" aria-labelledby="tech-heading">
+        <section class="section reveal" aria-labelledby="tech-heading">
             <h2 id="tech-heading" class="section-title" data-it="Stack Tecnologico" data-en="Tech Stack">Stack Tecnologico</h2>
-            
-            <div class="tech-grid">
+
+            <div class="tech-grid reveal-stagger">
                 <div class="tech-category">
                     <h3 data-it="Linguaggi" data-en="Languages">Linguaggi</h3>
                     <div class="tech-tags">
@@ -341,10 +361,10 @@
         </section>
         
         <!-- Open Source Projects Section -->
-        <section class="section" aria-labelledby="projects-heading">
+        <section class="section reveal" aria-labelledby="projects-heading">
             <h2 id="projects-heading" class="section-title" data-it="Open Source" data-en="Open Source">Open Source</h2>
-            
-            <div class="projects-grid">
+
+            <div class="projects-grid reveal-stagger">
                 <a href="https://github.com/zucchero-sintattico/piper-kt" target="_blank" rel="noopener noreferrer" class="project-card">
                     <div class="project-header">
                         <i data-lucide="message-square" class="project-icon"></i>
@@ -393,7 +413,7 @@
         </section>
         
         <!-- Contact Section -->
-        <section class="section" aria-labelledby="contact-heading">
+        <section class="section reveal" aria-labelledby="contact-heading">
             <h2 id="contact-heading" class="section-title" data-it="Contatti" data-en="Contact">Contatti</h2>
             
             <p class="section-text" data-it="Hai un progetto interessante? Parliamone." data-en="Have an interesting project? Let's talk.">Hai un progetto interessante? Parliamone.</p>
