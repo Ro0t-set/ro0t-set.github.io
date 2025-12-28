@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="it" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>Architetture Microservizi | Tommaso Patriti - Software Engineer Freelance Bologna</title>
+    <meta name="description" content="Progettazione e sviluppo di architetture microservizi scalabili e resilienti. Esperienza con Spring Boot, Docker, Kubernetes e sistemi distribuiti complessi.">
+    <meta name="keywords" content="microservizi, architetture distribuite, spring boot, docker, kubernetes, software engineer, freelance, Bologna">
+    <meta name="author" content="Tommaso Patriti">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Social -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tommasopatriti.me/microservizi">
+    <meta property="og:title" content="Architetture Microservizi | Tommaso Patriti">
+    <meta property="og:description" content="Progettazione e sviluppo di architetture microservizi scalabili e resilienti.">
+    <meta property="og:image" content="https://tommasopatriti.me/og-image.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://tommasopatriti.me/microservizi">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E👨‍💻%3C/text%3E%3C/svg%3E">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8JSLCWYJYF"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-8JSLCWYJYF');
+    </script>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "serviceType": "Architetture Microservizi",
+        "provider": {
+            "@type": "Person",
+            "name": "Tommaso Patriti",
+            "url": "https://tommasopatriti.me"
+        },
+        "areaServed": "IT",
+        "description": "Progettazione e sviluppo di architetture microservizi scalabili, resilienti e manutenibili"
+    }
+    </script>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+        <div class="nav-left">
+            <a href="/" style="text-decoration: none;">
+                <span class="nav-logo">TP</span>
+            </a>
+        </div>
+        <div class="nav-right">
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                <i data-lucide="sun" class="theme-icon-light"></i>
+                <i data-lucide="moon" class="theme-icon-dark"></i>
+            </button>
+            <div class="lang-switcher">
+                <button class="lang-btn active" data-lang="it" aria-label="Italiano">IT</button>
+                <span class="lang-divider">/</span>
+                <button class="lang-btn" data-lang="en" aria-label="English">EN</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <header class="hero" style="grid-template-columns: 1fr;">
+            <div class="hero-content">
+                <div class="status">
+                    <i data-lucide="boxes" style="width: 16px; height: 16px;"></i>
+                    <span data-it="Servizio" data-en="Service">Servizio</span>
+                </div>
+
+                <h1 class="name" data-it="Architetture Microservizi" data-en="Microservices Architecture">Architetture Microservizi</h1>
+                <p class="section-text" data-it="Progettazione e sviluppo di architetture distribuite scalabili, resilienti e manutenibili. Trasformo monoliti complessi in sistemi modulari ed efficienti." data-en="Design and development of scalable, resilient, and maintainable distributed architectures. I transform complex monoliths into modular and efficient systems.">
+                    Progettazione e sviluppo di architetture distribuite scalabili, resilienti e manutenibili. Trasformo monoliti complessi in sistemi modulari ed efficienti.
+                </p>
+            </div>
+        </header>
+
+        <!-- Service Details -->
+        <section class="section reveal">
+            <h2 class="section-title" data-it="Cosa offro" data-en="What I offer">Cosa offro</h2>
+
+            <div class="services-grid">
+                <article class="service-card">
+                    <i data-lucide="layout" class="service-icon"></i>
+                    <h3 data-it="Design di Sistema" data-en="System Design">Design di Sistema</h3>
+                    <p data-it="Architetture pensate per scalabilità e resilienza, con pattern provati e best practices." data-en="Architectures designed for scalability and resilience, with proven patterns and best practices.">Architetture pensate per scalabilità e resilienza, con pattern provati e best practices.</p>
+                </article>
+
+                <article class="service-card">
+                    <i data-lucide="network" class="service-icon"></i>
+                    <h3 data-it="Communication Patterns" data-en="Communication Patterns">Communication Patterns</h3>
+                    <p data-it="REST, gRPC, message queues e event-driven architecture per comunicazione efficiente." data-en="REST, gRPC, message queues and event-driven architecture for efficient communication.">REST, gRPC, message queues e event-driven architecture per comunicazione efficiente.</p>
+                </article>
+
+                <article class="service-card">
+                    <i data-lucide="shield-check" class="service-icon"></i>
+                    <h3 data-it="Service Mesh & Security" data-en="Service Mesh & Security">Service Mesh & Security</h3>
+                    <p data-it="Implementazione di Istio, Traefik e soluzioni di autenticazione/autorizzazione distribuite." data-en="Implementation of Istio, Traefik and distributed authentication/authorization solutions.">Implementazione di Istio, Traefik e soluzioni di autenticazione/autorizzazione distribuite.</p>
+                </article>
+
+                <article class="service-card">
+                    <i data-lucide="rocket" class="service-icon"></i>
+                    <h3 data-it="Migration Strategy" data-en="Migration Strategy">Migration Strategy</h3>
+                    <p data-it="Migrazione da monoliti a microservizi con approccio incrementale e zero downtime." data-en="Migration from monoliths to microservices with incremental approach and zero downtime.">Migrazione da monoliti a microservizi con approccio incrementale e zero downtime.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Tech Stack -->
+        <section class="section reveal">
+            <h2 class="section-title" data-it="Tecnologie utilizzate" data-en="Technologies used">Tecnologie utilizzate</h2>
+
+            <div class="tech-grid">
+                <div class="tech-category">
+                    <h3 data-it="Framework" data-en="Frameworks">Framework</h3>
+                    <div class="tech-tags">
+                        <span>Spring Boot</span><span>Micronaut</span><span>Quarkus</span><span>NestJS</span>
+                    </div>
+                </div>
+                <div class="tech-category">
+                    <h3 data-it="Orchestrazione" data-en="Orchestration">Orchestrazione</h3>
+                    <div class="tech-tags">
+                        <span>Kubernetes</span><span>Docker Swarm</span><span>Nomad</span>
+                    </div>
+                </div>
+                <div class="tech-category">
+                    <h3 data-it="Messaging & Events" data-en="Messaging & Events">Messaging & Events</h3>
+                    <div class="tech-tags">
+                        <span>Kafka</span><span>RabbitMQ</span><span>NATS</span><span>Redis Streams</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Form -->
+        <section class="section reveal">
+            <h2 class="section-title" data-it="Richiedi informazioni" data-en="Request information">Richiedi informazioni</h2>
+            <p class="section-text" data-it="Hai un progetto che richiede un'architettura microservizi? Contattami per una consulenza." data-en="Do you have a project that requires a microservices architecture? Contact me for a consultation.">
+                Hai un progetto che richiede un'architettura microservizi? Contattami per una consulenza.
+            </p>
+
+            <form id="contactForm" style="margin-top: 2rem; max-width: 600px;">
+                <div style="display: flex; flex-direction: column; gap: 1rem;">
+                    <div>
+                        <label for="name" style="display: block; margin-bottom: 0.5rem; color: var(--text-secondary); font-size: 0.9rem;" data-it="Nome" data-en="Name">Nome</label>
+                        <input type="text" id="name" name="name" required
+                            style="width: 100%; padding: 0.75rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-md); color: var(--text-primary); font-family: var(--font-main);">
+                    </div>
+
+                    <div>
+                        <label for="email" style="display: block; margin-bottom: 0.5rem; color: var(--text-secondary); font-size: 0.9rem;">Email</label>
+                        <input type="email" id="email" name="email" required
+                            style="width: 100%; padding: 0.75rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-md); color: var(--text-primary); font-family: var(--font-main);">
+                    </div>
+
+                    <div>
+                        <label for="message" style="display: block; margin-bottom: 0.5rem; color: var(--text-secondary); font-size: 0.9rem;" data-it="Messaggio" data-en="Message">Messaggio</label>
+                        <textarea id="message" name="message" rows="5" required
+                            style="width: 100%; padding: 0.75rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-md); color: var(--text-primary); font-family: var(--font-main); resize: vertical;"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: fit-content;">
+                        <i data-lucide="send"></i>
+                        <span data-it="Invia richiesta" data-en="Send request">Invia richiesta</span>
+                    </button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-main">
+            <p>© 2025 Tommaso Patriti</p>
+            <p class="footer-vat">P.IVA 04291431205</p>
+        </div>
+        <div class="footer-links">
+            <a href="/" data-it="Torna alla home" data-en="Back to home">Torna alla home</a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Contact form handler
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            const subject = 'Richiesta informazioni: Architetture Microservizi';
+            const body = `Nome: ${name}%0D%0AEmail: ${email}%0D%0A%0D%0AMessaggio:%0D%0A${message}`;
+            window.location.href = `mailto:tommasopatriti@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+        });
+    </script>
+</body>
+</html>
