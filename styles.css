@@ -351,7 +351,12 @@ main {
     position: relative;
     overflow: hidden;
 }
-.service-card::before {
+a.service-card {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+a.service-card::before {
     content: '';
     position: absolute;
     inset: 0;
@@ -360,12 +365,12 @@ main {
     transition: opacity 0.3s ease;
     z-index: 0;
 }
-.service-card:hover {
+a.service-card:hover {
     border-color: var(--accent);
     transform: translateY(-4px);
     box-shadow: 0 12px 32px rgba(0, 102, 255, 0.18);
 }
-.service-card:hover::before {
+a.service-card:hover::before {
     opacity: 1;
 }
 .service-card > * { position: relative; z-index: 1; }
