@@ -78,6 +78,7 @@
     </script>
     
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="cv-styles.css">
 </head>
 <body>
     <!-- Top Navigation -->
@@ -125,6 +126,10 @@
                         <i data-lucide="github"></i>
                         <span>GitHub</span>
                     </a>
+                    <button class="btn btn-secondary" id="openCvModal">
+                        <i data-lucide="file-text"></i>
+                        <span data-it="Scarica CV" data-en="Download CV">Scarica CV</span>
+                    </button>
                 </div>
 
                 <!-- Interactive Terminal -->
@@ -583,6 +588,43 @@
         </div>
     </div>
     
+    <!-- CV Generator Modal -->
+    <div class="modal" id="cvModal">
+        <div class="modal-content cv-modal-content">
+            <button class="modal-close" id="closeCvModal" aria-label="Chiudi">
+                <i data-lucide="x"></i>
+            </button>
+            <h2 data-it="Genera CV" data-en="Generate CV">Genera CV</h2>
+            <p class="cv-modal-subtitle" data-it="Seleziona le sezioni da includere" data-en="Select sections to include">Seleziona le sezioni da includere</p>
+
+            <div class="cv-sections-list" id="cvSectionsList"></div>
+
+            <div class="cv-lang-picker">
+                <span class="cv-lang-label" data-it="Lingua CV" data-en="CV Language">Lingua CV</span>
+                <div class="cv-lang-buttons">
+                    <button class="cv-lang-btn active" data-cv-lang="it">IT</button>
+                    <button class="cv-lang-btn" data-cv-lang="en">EN</button>
+                </div>
+            </div>
+
+            <div class="cv-modal-actions">
+                <button class="btn-select-all" id="cvSelectAll">
+                    <i data-lucide="list-checks" style="width:14px;height:14px;"></i>
+                    <span data-it="Deseleziona tutto" data-en="Deselect all">Deseleziona tutto</span>
+                </button>
+                <button class="btn-generate" id="cvGenerate">
+                    <i data-lucide="download" style="width:16px;height:16px;"></i>
+                    <span data-it="Scarica PDF" data-en="Download PDF">Scarica PDF</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="cv-template" style="position: absolute; left: -9999px; top: 0;"></div>
+
     <script src="script.js"></script>
+    <script src="cv-data.js"></script>
+    <script src="cv-generator.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.2/html2pdf.bundle.min.js" defer></script>
 </body>
 </html>

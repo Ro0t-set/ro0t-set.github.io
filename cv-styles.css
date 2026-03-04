@@ -1,0 +1,280 @@
+/* cv-styles.css — Stili per il generatore CV */
+
+/* Modal specifico CV */
+.cv-modal-content {
+    max-width: 480px;
+}
+
+.cv-modal-content > h2 {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 1.5rem;
+    margin-bottom: 0.25rem;
+}
+
+.cv-modal-subtitle {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: var(--space-lg);
+}
+
+/* Lista sezioni con toggle e drag */
+.cv-sections-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-bottom: var(--space-lg);
+    max-height: 50vh;
+    overflow-y: auto;
+    padding-right: 4px;
+}
+
+.cv-sections-list::-webkit-scrollbar {
+    width: 4px;
+}
+
+.cv-sections-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.cv-sections-list::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 2px;
+}
+
+/* Riga sezione draggabile */
+.cv-section-row {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    border-radius: var(--radius-sm);
+    transition: background 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+}
+
+.cv-section-row:hover {
+    background: var(--bg-card);
+}
+
+.cv-section-row.cv-dragging {
+    opacity: 0.4;
+}
+
+.cv-section-row.cv-drag-over {
+    box-shadow: 0 -2px 0 0 var(--accent);
+}
+
+/* Handle drag */
+.cv-drag-handle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    cursor: grab;
+    color: var(--text-secondary);
+    opacity: 0.4;
+    flex-shrink: 0;
+    transition: opacity 0.15s ease;
+}
+
+.cv-drag-handle:active {
+    cursor: grabbing;
+}
+
+.cv-section-row:hover .cv-drag-handle {
+    opacity: 0.8;
+}
+
+.cv-drag-handle svg {
+    width: 14px;
+    height: 14px;
+}
+
+/* Toggle switch stile iOS */
+.cv-toggle-label {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: 10px 12px 10px 4px;
+    cursor: pointer;
+    user-select: none;
+    flex: 1;
+    min-width: 0;
+}
+
+.cv-toggle-label input {
+    display: none;
+}
+
+.cv-toggle-switch {
+    width: 42px;
+    height: 24px;
+    background: var(--border);
+    border-radius: 12px;
+    position: relative;
+    transition: background 0.2s ease;
+    flex-shrink: 0;
+}
+
+.cv-toggle-switch::after {
+    content: '';
+    width: 18px;
+    height: 18px;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    transition: transform 0.2s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+.cv-toggle-label input:checked + .cv-toggle-switch {
+    background: var(--accent);
+}
+
+.cv-toggle-label input:checked + .cv-toggle-switch::after {
+    transform: translateX(18px);
+}
+
+.cv-toggle-text {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+/* Language picker */
+.cv-lang-picker {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 12px;
+    margin-bottom: var(--space-md);
+    background: var(--bg-card);
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+}
+
+.cv-lang-label {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+.cv-lang-buttons {
+    display: flex;
+    gap: 2px;
+    background: var(--border);
+    border-radius: 6px;
+    padding: 2px;
+}
+
+.cv-lang-btn {
+    padding: 4px 14px;
+    border: none;
+    border-radius: 4px;
+    background: transparent;
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.cv-lang-btn.active {
+    background: var(--accent);
+    color: white;
+}
+
+/* Azioni modal */
+.cv-modal-actions {
+    display: flex;
+    gap: var(--space-sm);
+    padding-top: var(--space-md);
+    border-top: 1px solid var(--border);
+}
+
+.cv-modal-actions .btn-select-all {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    cursor: pointer;
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    font-size: 0.8rem;
+    font-family: inherit;
+    padding: 8px 14px;
+    transition: all var(--transition);
+    flex: 0 0 auto;
+}
+
+.cv-modal-actions .btn-select-all:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.cv-modal-actions .btn-generate {
+    background: var(--gradient-primary);
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    font-family: inherit;
+    padding: 10px 20px;
+    flex: 1;
+    transition: opacity var(--transition), transform var(--transition);
+}
+
+.cv-modal-actions .btn-generate:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+.cv-modal-actions .btn-generate:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Spinner animazione */
+.cv-spinner {
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: cv-spin 0.6s linear infinite;
+}
+
+@keyframes cv-spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .cv-modal-content {
+        max-width: 100%;
+        margin: var(--space-sm);
+    }
+
+    .cv-modal-actions {
+        flex-direction: column;
+    }
+
+    .cv-modal-actions .btn-select-all,
+    .cv-modal-actions .btn-generate {
+        width: 100%;
+    }
+}
