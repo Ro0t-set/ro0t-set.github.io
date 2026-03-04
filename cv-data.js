@@ -7,6 +7,7 @@ const CV_DATA = {
         name: "Tommaso Patriti",
         title: { it: "Software Engineer Freelance", en: "Freelance Software Engineer" },
         location: "Bologna, Italia",
+        phone: "+39 392 075 2599",
         email: "tommasopatriti@gmail.com",
         github: "github.com/Ro0t-set",
         linkedin: "linkedin.com/in/tommaso-patriti",

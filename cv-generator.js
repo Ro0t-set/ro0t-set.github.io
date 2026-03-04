@@ -223,6 +223,7 @@
         html += '<div style="font-size: 12pt; color: #555; margin-top: 4px; font-weight: 400;">' + t(m.title) + '</div>';
         html += '</div>';
         html += '<div style="text-align: right; font-size: 8.5pt; color: #666; line-height: 2;">';
+        html += '<div>' + m.phone + '</div>';
         html += '<div>' + m.email + '</div>';
         html += '<div>' + m.location + '</div>';
         html += '<div>' + m.website + '</div>';
