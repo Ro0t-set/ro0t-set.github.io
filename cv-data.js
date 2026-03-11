@@ -90,8 +90,8 @@ const CV_DATA = {
                     date: { it: "Gen 2026 — Presente", en: "Jan 2026 — Present" },
                     title: "AgriMercati",
                     client: { it: "AgriMercati — Fondatore", en: "AgriMercati — Founder" },
-                    description: { it: "Piattaforma di aggregazione prezzi agricoli che raccoglie automaticamente i listini di cereali e legumi dalle principali borse merci italiane. Visualizzazione dati in tempo reale, grafici storici e download PDF.", en: "Agricultural price aggregation platform that automatically collects cereal and legume prices from major Italian commodity exchanges. Real-time data visualization, historical charts and PDF downloads." },
-                    tech: ["Web Scraping", "Data Aggregation", "Real-time Updates", "Charts"]
+                    description: { it: "Piattaforma digitale per l'aggregazione, normalizzazione e distribuzione dei prezzi delle commodity agricole italiane. Pipeline di acquisizione dati con OCR basato su AI, app mobile multipiattaforma (iOS/Android) e assistente conversazionale LLM per l'analisi delle dinamiche di prezzo. Infrastruttura con protezione anti-scraping/DDoS e API B2B.", en: "Digital platform for aggregation, normalization and distribution of Italian agricultural commodity prices. Data acquisition pipeline with AI-based OCR, cross-platform mobile app (iOS/Android) and LLM-based conversational assistant for price dynamics analysis. Infrastructure with anti-scraping/DDoS protection and B2B API." },
+                    tech: ["OCR / AI", "LLM", "Mobile App", "API B2B", "Anti-DDoS", "Data Pipeline"]
                 },
                 {
                     date: { it: "Nov 2025 — Feb 2026", en: "Nov 2025 — Feb 2026" },
