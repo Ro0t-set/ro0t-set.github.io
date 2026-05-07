@@ -284,7 +284,7 @@
                     if (item.tech && item.tech.length) {
                         html += '<div style="margin-top: 5px; display: flex; flex-wrap: wrap; gap: 4px;">';
                         item.tech.forEach(function (tag) {
-                            html += '<span style="font-size: 7.5pt; padding: 2px 7px; background: #f0f4ff; border: 1px solid #dde4f0; border-radius: 3px; color: #444; font-family: \'JetBrains Mono\', monospace;">' + tag + '</span>';
+                            html += '<span style="font-size: 7.5pt; padding: 2px 7px; background: #f0f4ff; border: 1px solid #dde4f0; border-radius: 3px; color: #444; font-family: \'JetBrains Mono\', monospace;">' + t(tag) + '</span>';
                         });
                         html += '</div>';
                     }

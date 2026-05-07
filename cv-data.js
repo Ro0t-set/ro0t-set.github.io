@@ -93,7 +93,8 @@ const CV_DATA = {
                     date: { it: "Apr 2026 — Presente", en: "Apr 2026 — Present" },
                     title: { it: "Sviluppatore Android", en: "Android Developer" },
                     client: "IDEM Srl",
-                    logo: "assets/logos/idem.png"
+                    logo: "assets/logos/idem.png",
+                    tech: ["Android SDK", "Kotlin", "Java", "RabbitMQ", { it: "Architettura Esagonale", en: "Hexagonal Architecture" }, "Scrum"]
                 },
                 {
                     date: { it: "Gen 2026 — Presente", en: "Jan 2026 — Present" },
