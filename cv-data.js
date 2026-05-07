@@ -97,6 +97,14 @@ const CV_DATA = {
                     tech: ["Android SDK", "Kotlin", "Java", "RabbitMQ", { it: "Architettura Esagonale", en: "Hexagonal Architecture" }, "Scrum"]
                 },
                 {
+                    date: "2026",
+                    title: { it: "Frontend Sito Web", en: "Website Frontend" },
+                    client: { it: "Presa B+ — Palestra Boulder", en: "Presa B+ — Bouldering Gym" },
+                    description: { it: "Sito web frontend per la palestra di boulder Presa B+ a Bologna.", en: "Frontend website for the Presa B+ bouldering gym in Bologna." },
+                    tech: ["Astro", "TypeScript", "Tailwind CSS", "Frontend"],
+                    logo: "assets/logos/presabpiu.svg"
+                },
+                {
                     date: { it: "Gen 2026 — Presente", en: "Jan 2026 — Present" },
                     title: "AgriMercati",
                     client: { it: "AgriMercati — Fondatore", en: "AgriMercati — Founder" },
