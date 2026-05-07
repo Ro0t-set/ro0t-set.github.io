@@ -326,7 +326,9 @@ main {
 }
 .freelance-card > * { position: relative; z-index: 1; }
 .freelance-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: var(--space-sm); }
-.freelance-meta { display: flex; align-items: center; gap: var(--space-sm); }
+.freelance-meta { display: flex; align-items: center; gap: var(--space-sm); flex-wrap: wrap; }
+.freelance-logo { width: 40px; height: 40px; object-fit: contain; border-radius: 8px; background: #fff; padding: 4px; border: 1px solid var(--border); flex-shrink: 0; }
+.freelance-logo--wide { width: 80px; height: 40px; padding: 4px 6px; }
 .freelance-year { font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent); background: var(--accent-bg); padding: 0.2rem 0.5rem; border-radius: 4px; }
 .freelance-client { font-size: 0.85rem; color: var(--text-muted); }
 .freelance-link { display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; color: var(--text-muted); transition: var(--transition); }
@@ -399,7 +401,8 @@ a.service-card:hover::before {
 .timeline-item:last-child .timeline-content { border-bottom: none; padding-bottom: 0; }
 .timeline-date { font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); }
 .timeline-content h3 { font-size: 1rem; font-weight: 600; margin: var(--space-xs) 0; }
-.timeline-company { font-size: 0.9rem; color: var(--accent); margin-bottom: var(--space-xs); }
+.timeline-company { font-size: 0.9rem; color: var(--accent); margin-bottom: var(--space-xs); display: inline-flex; align-items: center; gap: 0.5rem; }
+.timeline-logo { width: 20px; height: 20px; object-fit: contain; border-radius: 4px; background: #fff; padding: 2px; border: 1px solid var(--border); flex-shrink: 0; }
 .timeline-desc { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5; }
 
 /* ==========================================================================

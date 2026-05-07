@@ -255,12 +255,13 @@
 
             case 'timeline':
                 section.items.forEach(function (item) {
+                    var logoImg = item.logo ? '<img src="' + item.logo + '" alt="" style="width: 14px; height: 14px; object-fit: contain; vertical-align: middle; margin-right: 5px; border-radius: 2px;">' : '';
                     html += '<div style="margin-bottom: 12px; page-break-inside: avoid;">';
                     html += '<div style="display: flex; justify-content: space-between; align-items: baseline;">';
                     html += '<span style="font-size: 10pt; font-weight: 600; color: #1a1a1a;">' + t(item.title) + '</span>';
                     html += '<span style="font-size: 8pt; color: #999; font-family: \'JetBrains Mono\', monospace; white-space: nowrap; margin-left: 12px;">' + t(item.date) + '</span>';
                     html += '</div>';
-                    html += '<div style="font-size: 9pt; color: #0066ff; font-weight: 500; margin-top: 1px;">' + t(item.company) + '</div>';
+                    html += '<div style="font-size: 9pt; color: #0066ff; font-weight: 500; margin-top: 1px;">' + logoImg + t(item.company) + '</div>';
                     if (item.description) {
                         html += '<div style="font-size: 9pt; color: #555; margin-top: 3px; line-height: 1.5;">' + t(item.description) + '</div>';
                     }
@@ -270,12 +271,13 @@
 
             case 'projects':
                 section.items.forEach(function (item) {
+                    var logoImg = item.logo ? '<img src="' + item.logo + '" alt="" style="width: 14px; height: 14px; object-fit: contain; vertical-align: middle; margin-right: 5px; border-radius: 2px;">' : '';
                     html += '<div style="margin-bottom: 12px; page-break-inside: avoid;">';
                     html += '<div style="display: flex; justify-content: space-between; align-items: baseline;">';
                     html += '<span style="font-size: 10pt; font-weight: 600; color: #1a1a1a;">' + t(item.title) + '</span>';
                     html += '<span style="font-size: 8pt; color: #999; font-family: \'JetBrains Mono\', monospace; white-space: nowrap; margin-left: 12px;">' + t(item.date) + '</span>';
                     html += '</div>';
-                    html += '<div style="font-size: 9pt; color: #0066ff; font-weight: 500; margin-top: 1px;">' + t(item.client) + '</div>';
+                    html += '<div style="font-size: 9pt; color: #0066ff; font-weight: 500; margin-top: 1px;">' + logoImg + t(item.client) + '</div>';
                     if (item.description) {
                         html += '<div style="font-size: 9pt; color: #555; margin-top: 3px; line-height: 1.5;">' + t(item.description) + '</div>';
                     }

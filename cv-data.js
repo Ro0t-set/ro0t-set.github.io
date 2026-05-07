@@ -40,19 +40,22 @@ const CV_DATA = {
                     date: { it: "Mag 2025 — Presente", en: "May 2025 — Present" },
                     title: { it: "Collaboratore di ricerca", en: "Research Collaborator" },
                     company: { it: "Università di Bologna — CIRI ICT", en: "University of Bologna — CIRI ICT" },
-                    description: { it: "Progetto di ricerca industriale strategica DISCOV.ER (PR FESR 2021–2027). Sviluppo di modelli di simulazione e predizione di dati ambientali mediante tecniche AI, validazione su dataset del Parco del Delta del Po, integrazione in piattaforma Digital Twin.", en: "Strategic industrial research project DISCOV.ER (PR FESR 2021–2027). Development of AI simulation and prediction models for environmental data, validation on Po Delta Park datasets, Digital Twin platform integration." }
+                    description: { it: "Progetto di ricerca industriale strategica DISCOV.ER (PR FESR 2021–2027). Sviluppo di modelli di simulazione e predizione di dati ambientali mediante tecniche AI, validazione su dataset del Parco del Delta del Po, integrazione in piattaforma Digital Twin.", en: "Strategic industrial research project DISCOV.ER (PR FESR 2021–2027). Development of AI simulation and prediction models for environmental data, validation on Po Delta Park datasets, Digital Twin platform integration." },
+                    logo: "assets/logos/unibo.png"
                 },
                 {
                     date: { it: "Lug 2024 — Nov 2024", en: "Jul 2024 — Nov 2024" },
                     title: { it: "Cloud Engineer — Tirocinio", en: "Cloud Engineer — Internship" },
                     company: "Dallara Automobili",
-                    description: { it: "Sistema Simulation as a Service con architettura microservizi. Autoscaling con KEDA, Prometheus e Kubernetes. Backend in Golang.", en: "Simulation as a Service system with microservices architecture. Autoscaling with KEDA, Prometheus and Kubernetes. Backend in Golang." }
+                    description: { it: "Sistema Simulation as a Service con architettura microservizi. Autoscaling con KEDA, Prometheus e Kubernetes. Backend in Golang.", en: "Simulation as a Service system with microservices architecture. Autoscaling with KEDA, Prometheus and Kubernetes. Backend in Golang." },
+                    logo: "assets/logos/dallara.svg"
                 },
                 {
                     date: { it: "Nov 2023 — Nov 2024", en: "Nov 2023 — Nov 2024" },
                     title: { it: "Tutor Universitario", en: "University Tutor" },
                     company: { it: "Università di Bologna", en: "University of Bologna" },
-                    description: { it: "Supporto alla didattica per studenti con DSA.", en: "Teaching support for students with learning disabilities." }
+                    description: { it: "Supporto alla didattica per studenti con DSA.", en: "Teaching support for students with learning disabilities." },
+                    logo: "assets/logos/unibo.png"
                 }
             ]
         },
@@ -87,39 +90,50 @@ const CV_DATA = {
             type: "projects",
             items: [
                 {
+                    date: { it: "Apr 2026 — Presente", en: "Apr 2026 — Present" },
+                    title: { it: "Sviluppatore Android", en: "Android Developer" },
+                    client: "IDEM Srl",
+                    logo: "assets/logos/idem.png"
+                },
+                {
                     date: { it: "Gen 2026 — Presente", en: "Jan 2026 — Present" },
                     title: "AgriMercati",
                     client: { it: "AgriMercati — Fondatore", en: "AgriMercati — Founder" },
                     description: { it: "Piattaforma digitale per l'aggregazione, normalizzazione e distribuzione dei prezzi delle commodity agricole italiane. Pipeline di acquisizione dati con OCR basato su AI, app mobile multipiattaforma (iOS/Android) e assistente conversazionale LLM per l'analisi delle dinamiche di prezzo. Infrastruttura con protezione anti-scraping/DDoS e API B2B.", en: "Digital platform for aggregation, normalization and distribution of Italian agricultural commodity prices. Data acquisition pipeline with AI-based OCR, cross-platform mobile app (iOS/Android) and LLM-based conversational assistant for price dynamics analysis. Infrastructure with anti-scraping/DDoS protection and B2B API." },
-                    tech: ["OCR / AI", "LLM", "Mobile App", "API B2B", "Anti-DDoS", "Data Pipeline"]
+                    tech: ["OCR / AI", "LLM", "Mobile App", "API B2B", "Anti-DDoS", "Data Pipeline"],
+                    logo: "assets/logos/agrimercati.png"
                 },
                 {
                     date: { it: "Nov 2025 — Feb 2026", en: "Nov 2025 — Feb 2026" },
                     title: { it: "Client Web Angular", en: "Angular Web Client" },
                     client: "Nowhere Solutions & Web",
                     description: { it: "Progettazione e sviluppo di un client web production-ready Angular, con le stesse funzionalità di un'applicazione mobile esistente.", en: "Design and development of a production-ready Angular web client, with the same features as an existing mobile application." },
-                    tech: ["Angular", "TypeScript", "Frontend"]
+                    tech: ["Angular", "TypeScript", "Frontend"],
+                    logo: "assets/logos/nowhere.png"
                 },
                 {
                     date: { it: "Ago 2025 — Dic 2025", en: "Aug 2025 — Dec 2025" },
                     title: "React Frontend",
                     client: { it: "Università di Bologna", en: "University of Bologna" },
                     description: { it: "Sviluppo del frontend React per una piattaforma per la prevenzione dell'abbandono universitario basata su analisi predittive e sistemi di supporto agli studenti.", en: "React frontend development for a platform preventing university dropout based on predictive analytics and student support systems." },
-                    tech: ["React", "TypeScript", "Frontend"]
+                    tech: ["React", "TypeScript", "Frontend"],
+                    logo: "assets/logos/unibo.png"
                 },
                 {
                     date: { it: "Mag 2025 — Presente", en: "May 2025 — Present" },
                     title: "Elaria",
                     client: "Elaria",
                     description: { it: "Gestione completa dell'architettura a microservizi e dell'orchestrazione cloud. Infrastruttura basata su Spring Boot e Docker Swarm per un gestionale altamente modulare, scalabile ed espandibile.", en: "Full management of microservices architecture and cloud orchestration. Infrastructure based on Spring Boot and Docker Swarm for a highly modular, scalable and expandable management system." },
-                    tech: ["Spring Boot", "Docker Swarm", "Traefik", "Keycloak", "RabbitMQ", "Grafana"]
+                    tech: ["Spring Boot", "Docker Swarm", "Traefik", "Keycloak", "RabbitMQ", "Grafana"],
+                    logo: "assets/logos/elaria.png"
                 },
                 {
                     date: { it: "Mag 2025 — Presente", en: "May 2025 — Present" },
                     title: "Discov.er",
                     client: { it: "Università di Bologna — Progetto FESR", en: "University of Bologna — FESR Project" },
                     description: { it: "Progetto di ricerca industriale strategica DISCOV.ER (PR FESR 2021–2027). Sviluppo di modelli di simulazione e previsione di dati ambientali con tecniche di AI e Machine Learning.", en: "Strategic industrial research project DISCOV.ER (PR FESR 2021–2027). Development of simulation and prediction models for environmental data using AI and Machine Learning techniques." },
-                    tech: ["AI", "Machine Learning", "Python"]
+                    tech: ["AI", "Machine Learning", "Python"],
+                    logo: "assets/logos/unibo.png"
                 }
             ]
         },
