@@ -225,6 +225,7 @@
         html += '<div style="text-align: right; font-size: 8.5pt; color: #666; line-height: 2;">';
         html += '<div>' + m.phone + '</div>';
         html += '<div>' + m.email + '</div>';
+        if (m.pec) { html += '<div>' + m.pec + ' (PEC)</div>'; }
         html += '<div>' + m.location + '</div>';
         html += '<div>' + m.website + '</div>';
         html += '<div>' + m.github + '</div>';

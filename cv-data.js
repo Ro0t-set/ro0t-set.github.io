@@ -4,11 +4,12 @@
 
 const CV_DATA = {
     meta: {
-        name: "Tommaso Patriti",
+        name: "Ing. Tommaso Patriti",
         title: { it: "Software Engineer Freelance", en: "Freelance Software Engineer" },
         location: "Bologna, Italia",
         phone: "+39 392 075 2599",
         email: "tommasopatriti@gmail.com",
+        pec: "tommaso.patriti@ingpec.eu",
         github: "github.com/Ro0t-set",
         linkedin: "linkedin.com/in/tommaso-patriti",
         website: "tommasopatriti.me",
