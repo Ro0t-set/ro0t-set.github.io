@@ -4,7 +4,7 @@
 
 const CV_DATA = {
     meta: {
-        name: "Ing. Tommaso Patriti",
+        name: "Tommaso Patriti",
         title: { it: "Software Engineer Freelance", en: "Freelance Software Engineer" },
         location: "Bologna, Italia",
         phone: "+39 392 075 2599",
