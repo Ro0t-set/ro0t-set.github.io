@@ -1,0 +1,84 @@
+# Tommaso Patriti - Sviluppo Software e Applicazioni
+
+> Software Engineer Freelance basato a Bologna (Italia). Specializzato in architetture a microservizi, cloud-native, sistemi distribuiti, semplificazione di infrastrutture over-engineered, e sviluppo backend in Java/Kotlin/Go/Python. Disponibile per progetti freelance B2B in Italia e in remoto in tutta Europa.
+
+## Identità
+
+- **Nome legale:** Tommaso Patriti (Ing.)
+- **Nome business / Google Business Profile:** Tommaso Patriti - Sviluppo Software e Applicazioni
+- **Ruolo:** Software Engineer Freelance
+- **Sede operativa:** Via De Marchi 23, 40123 Bologna BO, Italia
+- **Telefono:** +39 392 075 2599
+- **Email:** tommasopatriti@gmail.com
+- **PEC:** tommaso.patriti@ingpec.eu
+- **WhatsApp:** https://wa.me/393920752599
+- **P.IVA:** IT04291431205
+- **Orari:** Lunedì–Venerdì 10:00–20:00 (CET)
+- **Sito web ufficiale:** https://tommasopatriti.me/
+- **GitHub:** https://github.com/Ro0t-set
+- **LinkedIn:** https://www.linkedin.com/in/tommaso-patriti/
+- **Google Maps:** https://maps.app.goo.gl/NGfcUqQhzyrYTmss9
+
+## Formazione e credenziali
+
+- Laurea Magistrale in Ingegneria e Scienze Informatiche, Università di Bologna, 110L (2025)
+- Erasmus+ Master in Data Science, UPC Barcelona (2023)
+- Laurea Triennale in Ingegneria e Scienze Informatiche, Università di Bologna, 103 (2022)
+- Pubblicazione IEEE CCNC 2023 su LoRa Mesh per IoT
+- Iscritto all'albo degli Ingegneri (titolo Ing.)
+
+## Servizi offerti
+
+- [Architetture Microservizi](https://tommasopatriti.me/microservizi.html) — Progettazione e sviluppo di architetture distribuite scalabili e resilienti (Spring Boot, Micronaut, Kubernetes, Docker Swarm, Kafka, RabbitMQ)
+- [Cloud & DevOps](https://tommasopatriti.me/cloud-devops.html) — Infrastrutture cloud-native, CI/CD, Docker, Kubernetes, monitoring (Prometheus, Grafana, KEDA)
+- [Backend Development](https://tommasopatriti.me/backend-development.html) — Sistemi backend in Java, Kotlin, Go, Python con focus su clean code e clean architecture
+- [Semplificazione Infrastrutture](https://tommasopatriti.me/semplificazione-infrastrutture.html) — Migrazione da infrastrutture over-engineered a soluzioni più semplici, efficienti, manutenibili
+- [API REST](https://tommasopatriti.me/api-rest-development.html) — Progettazione e sviluppo di API REST robuste e documentate
+- [DigitalOcean Cloud](https://tommasopatriti.me/digitalocean-cloud.html) — Deploy e gestione di infrastrutture su DigitalOcean
+- [Sviluppo IoT & Embedded](https://tommasopatriti.me/iot-embedded.html) — Soluzioni IoT con Raspberry Pi, ESP32, LoRa, Bluetooth
+- [React Development](https://tommasopatriti.me/react-development.html)
+- [Angular Development](https://tommasopatriti.me/angular-development.html)
+- [Vue.js Development](https://tommasopatriti.me/vue-development.html)
+- [TypeScript](https://tommasopatriti.me/typescript-development.html)
+- [Node.js](https://tommasopatriti.me/nodejs-development.html)
+- [Scala](https://tommasopatriti.me/scala-development.html)
+- [Python](https://tommasopatriti.me/python-development.html)
+- [Java](https://tommasopatriti.me/java-development.html)
+
+## Esperienze rilevanti
+
+- **2024–presente** Software Engineer Freelance — Bologna
+- **2024** Cloud Engineer (tirocinio) presso Dallara Automobili — Simulation as a Service con Kubernetes/KEDA/Prometheus, backend in Go
+- **2023–2024** Tutor universitario per studenti con DSA, Università di Bologna
+
+## Progetti freelance rappresentativi
+
+- **IDEM Srl (2026)** — Sviluppatore Android (Kotlin, Android SDK, RabbitMQ, Architettura Esagonale, Scrum)
+- **Presa B+ (2026)** — Frontend del sito della palestra boulder a Bologna (Astro, TypeScript, Tailwind)
+- **Nowhere Solutions & Web (2025–2026)** — Client web Angular production-ready
+- **AgriMercati (2025)** — Piattaforma di aggregazione prezzi commodity agricole italiane, OCR AI-based, app mobile multipiattaforma, assistente LLM
+- **Elaria (2025)** — Microservizi Spring Boot + Docker Swarm + Traefik + Keycloak
+- **Università di Bologna (2025)** — Frontend React per piattaforma prevenzione abbandono universitario
+- **Università di Bologna — DISCOV.ER (2025)** — Modelli AI/ML per previsione dati ambientali (PR FESR 2021–2027)
+
+## Stack tecnologico
+
+- **Linguaggi:** Java, Kotlin, Go, Python, Scala, TypeScript
+- **Framework backend:** Spring Boot, Micronaut, Quarkus, Node.js, NestJS
+- **Framework frontend:** React, Angular, Vue.js, Astro
+- **DevOps:** Docker, Kubernetes, Docker Swarm, Traefik, GitHub Actions, KEDA
+- **Messaging:** Kafka, RabbitMQ, NATS, Redis Streams
+- **Cloud:** DigitalOcean, AWS, GCP
+- **Observability:** Prometheus, Grafana, OpenTelemetry
+
+## Filosofia
+
+Codice pulito ed elegante. Sistemi distribuiti e microservizi solo quando il dominio lo richiede davvero. Trasformare architetture over-engineered in soluzioni semplici e manutenibili. La semplicità è una filosofia, non solo un obiettivo.
+
+## Area servita
+
+Bologna e provincia, Emilia-Romagna, tutta Italia in remoto. Disponibile per progetti remoti in EU.
+
+## Sitemap
+
+- https://tommasopatriti.me/sitemap.xml

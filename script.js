@@ -77,22 +77,28 @@
     }
     
     function updateMetaTags(lang) {
-        const meta = {
-            it: {
-                title: 'Tommaso Patriti | Software Engineer Freelance Bologna - Microservizi & Cloud',
-                description: 'Tommaso Patriti, Software Engineer Freelance a Bologna. Specializzato in sistemi distribuiti, microservizi, architetture cloud-native e clean code. P.IVA 04291431205'
-            },
-            en: {
-                title: 'Tommaso Patriti | Freelance Software Engineer Bologna - Microservices & Cloud',
-                description: 'Tommaso Patriti, Freelance Software Engineer based in Bologna. Specialized in distributed systems, microservices, cloud-native architectures and clean code. VAT 04291431205'
-            }
-        };
-        
-        const m = meta[lang];
-        document.title = m.title;
-        
+        // If <title> has per-page localizations via data-it/data-en, use those (sub-pages).
+        // Otherwise fall back to the generic home-page title (legacy behavior).
+        const titleEl = document.querySelector('title');
+        if (titleEl && titleEl.dataset[lang]) {
+            document.title = titleEl.dataset[lang];
+        } else {
+            const fallback = {
+                it: 'Tommaso Patriti - Sviluppo Software e Applicazioni | Software Engineer Freelance Bologna',
+                en: 'Tommaso Patriti - Software Development & Applications | Freelance Software Engineer Bologna'
+            };
+            document.title = fallback[lang];
+        }
+
+        // Same logic for meta description
         const descMeta = document.querySelector('meta[name="description"]');
-        if (descMeta) descMeta.content = m.description;
+        if (descMeta) {
+            const perPageDesc = descMeta.dataset[lang];
+            if (perPageDesc) {
+                descMeta.content = perPageDesc;
+            }
+            // else: leave the static content already in HTML (server-rendered for the page)
+        }
     }
     
     function initLanguage() {

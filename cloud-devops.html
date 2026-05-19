@@ -5,21 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- SEO Meta Tags -->
-    <title>Cloud & DevOps | Tommaso Patriti - Software Engineer Freelance Bologna</title>
-    <meta name="description" content="Implementazione di infrastrutture cloud-native con Docker, Kubernetes, CI/CD pipelines. Automazione, monitoring e ottimizzazione per sistemi ad alte prestazioni.">
+    <title data-it="Cloud & DevOps a Bologna | Kubernetes, Docker, CI/CD | Tommaso Patriti" data-en="Cloud & DevOps in Bologna | Kubernetes, Docker, CI/CD | Tommaso Patriti">Cloud & DevOps a Bologna | Kubernetes, Docker, CI/CD | Tommaso Patriti</title>
+    <meta name="description" content="Consulenza Cloud & DevOps a Bologna. Kubernetes, Docker, CI/CD, autoscaling con KEDA, monitoring Prometheus/Grafana, infrastructure-as-code. Software Engineer Freelance.">
     <meta name="keywords" content="cloud, devops, kubernetes, docker, ci/cd, terraform, ansible, software engineer, freelance, Bologna">
     <meta name="author" content="Tommaso Patriti">
     <meta name="robots" content="index, follow">
 
     <!-- Open Graph / Social -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://tommasopatriti.me/cloud-devops">
-    <meta property="og:title" content="Cloud & DevOps | Tommaso Patriti">
-    <meta property="og:description" content="Implementazione di infrastrutture cloud-native con Docker, Kubernetes e CI/CD pipelines.">
+    <meta property="og:url" content="https://tommasopatriti.me/cloud-devops.html">
+    <meta property="og:title" content="Cloud & DevOps a Bologna | Kubernetes, Docker, CI/CD | Tommaso Patriti">
+    <meta property="og:description" content="Consulenza Cloud & DevOps a Bologna. Kubernetes, Docker, CI/CD, autoscaling con KEDA, monitoring Prometheus/Grafana, infrastructure-as-code. Software Engineer Freelance.">
     <meta property="og:image" content="https://tommasopatriti.me/og-image.png">
 
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://tommasopatriti.me/cloud-devops">
+    <link rel="canonical" href="https://tommasopatriti.me/cloud-devops.html">
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2">
@@ -47,21 +47,157 @@
 
     <!-- Structured Data -->
     <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
     {
-        "@context": "https://schema.org",
-        "@type": "Service",
-        "serviceType": "Cloud & DevOps",
-        "provider": {
-            "@type": "Person",
-            "name": "Tommaso Patriti",
-            "url": "https://tommasopatriti.me"
+      "@type": "BreadcrumbList",
+      "@id": "https://tommasopatriti.me/cloud-devops.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://tommasopatriti.me/"
         },
-        "areaServed": "IT",
-        "description": "Implementazione di infrastrutture cloud-native con Docker, Kubernetes e CI/CD pipelines"
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Cloud & DevOps",
+          "item": "https://tommasopatriti.me/cloud-devops.html"
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://tommasopatriti.me/cloud-devops.html#service",
+      "name": "Cloud & DevOps",
+      "description": "Implementazione di infrastrutture cloud-native a Bologna con Docker, Kubernetes e pipeline CI/CD robuste. Autoscaling con KEDA, monitoring con Prometheus e Grafana, GitOps con ArgoCD.",
+      "url": "https://tommasopatriti.me/cloud-devops.html",
+      "serviceType": "Cloud & DevOps",
+      "provider": {
+        "@id": "https://tommasopatriti.me/#business"
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Bologna"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Emilia-Romagna"
+        },
+        {
+          "@type": "Country",
+          "name": "Italia"
+        }
+      ],
+      "audience": {
+        "@type": "BusinessAudience",
+        "audienceType": "Aziende, startup, PMI"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Cloud & DevOps"
+      }
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://tommasopatriti.me/#business",
+      "name": "Tommaso Patriti - Sviluppo Software e Applicazioni",
+      "url": "https://tommasopatriti.me/",
+      "telephone": "+393920752599",
+      "email": "tommasopatriti@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Via De Marchi 23",
+        "addressLocality": "Bologna",
+        "postalCode": "40123",
+        "addressRegion": "BO",
+        "addressCountry": "IT"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 44.4943391,
+        "longitude": 11.3342916
+      },
+      "hasMap": "https://maps.app.goo.gl/NGfcUqQhzyrYTmss9",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "bestRating": "5",
+        "worstRating": "1",
+        "ratingCount": "4",
+        "reviewCount": "4"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://tommasopatriti.me/cloud-devops.html#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Quale cloud provider mi conviene?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Dipende dai requisiti: AWS è lo standard enterprise con il catalogo più ampio, GCP eccelle in data/ML e Kubernetes, DigitalOcean è ideale per startup e PMI per semplicità e costi. Spesso suggerisco di partire con quello che il team già conosce."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Mi serve davvero Kubernetes?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non sempre. Kubernetes è la scelta giusta se hai più team, microservizi reali, requisiti di scaling eterogenei. Per molti casi Docker Swarm, ECS o anche Docker Compose su un VPS sono più semplici, più economici e più che sufficienti."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quanto costa una pipeline CI/CD ben fatta?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Una pipeline base con GitHub Actions costa pochi giorni di lavoro. Una pipeline production-grade con test, security scan, deploy multi-environment, rollback e approval gates è 2-4 settimane. Il ROI si vede dopo 2-3 mesi grazie a deploy più sicuri e frequenti."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Puoi aiutarci con un sistema già in produzione?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sì, faccio assessment di infrastrutture esistenti, identifico colli di bottiglia, costi non necessari, problemi di security e propongo un piano di miglioramento incrementale senza downtime."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Hai esperienza con autoscaling avanzato?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sì, ho implementato sistemi Simulation-as-a-Service in Dallara Automobili con KEDA + Prometheus su Kubernetes per autoscaling basato su metriche custom, non solo CPU/memoria."
+          }
+        }
+      ]
     }
-    </script>
+  ]
+}
+</script>
 
     <link rel="stylesheet" href="styles.css">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cloud & DevOps a Bologna | Kubernetes, Docker, CI/CD | Tommaso Patriti">
+<meta name="twitter:description" content="Consulenza Cloud & DevOps a Bologna. Kubernetes, Docker, CI/CD, autoscaling con KEDA, monitoring Prometheus/Grafana, infrastructure-as-code. Software Engineer Freelance.">
+<meta name="twitter:image" content="https://tommasopatriti.me/apple-touch-icon.png">
+
+<link rel="alternate" hreflang="it" href="https://tommasopatriti.me/cloud-devops.html">
+<link rel="alternate" hreflang="en" href="https://tommasopatriti.me/cloud-devops.html">
+<link rel="alternate" hreflang="x-default" href="https://tommasopatriti.me/cloud-devops.html">
+
+<meta name="geo.region" content="IT-BO">
+<meta name="geo.placename" content="Bologna">
+<meta name="geo.position" content="44.4943391;11.3342916">
+<meta name="ICBM" content="44.4943391, 11.3342916">
+<!-- SEO-OPTIMIZED-V2 -->
+<!-- SEO-OPTIMIZED-V3-with-rating -->
 </head>
 <body>
     <!-- Top Navigation -->
@@ -77,7 +213,7 @@
                     <span data-it="Servizio" data-en="Service">Servizio</span>
                 </div>
 
-                <h1 class="name" data-it="Cloud & DevOps" data-en="Cloud & DevOps">Cloud & DevOps</h1>
+                <h1 class="name" data-it="Cloud & DevOps a Bologna" data-en="Cloud & DevOps in Bologna">Cloud & DevOps a Bologna</h1>
                 <p class="section-text" data-it="Implementazione di infrastrutture cloud-native con Docker, Kubernetes e CI/CD pipelines. Automazione, monitoring e ottimizzazione per sistemi ad alte prestazioni." data-en="Implementation of cloud-native infrastructures with Docker, Kubernetes, and CI/CD pipelines. Automation, monitoring, and optimization for high-performance systems.">
                     Implementazione di infrastrutture cloud-native con Docker, Kubernetes e CI/CD pipelines. Automazione, monitoring e ottimizzazione per sistemi ad alte prestazioni.
                 </p>
@@ -222,7 +358,18 @@
                 </div>
             </form>
         </section>
-    </main>
+    <!-- FAQ Section -->
+<section class="section reveal" aria-labelledby="faq-heading">
+<h2 id="faq-heading" class="section-title" data-it="Domande frequenti" data-en="Frequently asked questions">Domande frequenti</h2>
+<div class="faq-list">
+<details class="faq-item"><summary class="faq-question">Quale cloud provider mi conviene?</summary><div class="faq-answer"><p>Dipende dai requisiti: AWS è lo standard enterprise con il catalogo più ampio, GCP eccelle in data/ML e Kubernetes, DigitalOcean è ideale per startup e PMI per semplicità e costi. Spesso suggerisco di partire con quello che il team già conosce.</p></div></details>
+<details class="faq-item"><summary class="faq-question">Mi serve davvero Kubernetes?</summary><div class="faq-answer"><p>Non sempre. Kubernetes è la scelta giusta se hai più team, microservizi reali, requisiti di scaling eterogenei. Per molti casi Docker Swarm, ECS o anche Docker Compose su un VPS sono più semplici, più economici e più che sufficienti.</p></div></details>
+<details class="faq-item"><summary class="faq-question">Quanto costa una pipeline CI/CD ben fatta?</summary><div class="faq-answer"><p>Una pipeline base con GitHub Actions costa pochi giorni di lavoro. Una pipeline production-grade con test, security scan, deploy multi-environment, rollback e approval gates è 2-4 settimane. Il ROI si vede dopo 2-3 mesi grazie a deploy più sicuri e frequenti.</p></div></details>
+<details class="faq-item"><summary class="faq-question">Puoi aiutarci con un sistema già in produzione?</summary><div class="faq-answer"><p>Sì, faccio assessment di infrastrutture esistenti, identifico colli di bottiglia, costi non necessari, problemi di security e propongo un piano di miglioramento incrementale senza downtime.</p></div></details>
+<details class="faq-item"><summary class="faq-question">Hai esperienza con autoscaling avanzato?</summary><div class="faq-answer"><p>Sì, ho implementato sistemi Simulation-as-a-Service in Dallara Automobili con KEDA + Prometheus su Kubernetes per autoscaling basato su metriche custom, non solo CPU/memoria.</p></div></details>
+</div>
+</section>
+</main>
 
     <!-- Footer -->
     <footer class="footer" itemscope itemtype="https://schema.org/ProfessionalService">
@@ -232,6 +379,7 @@
 <p class="footer-contact"><i data-lucide="phone" class="footer-icon"></i><a href="tel:+393920752599" itemprop="telephone">+39 392 075 2599</a></p>
 <p class="footer-contact"><i data-lucide="mail" class="footer-icon"></i><a href="mailto:tommasopatriti@gmail.com" itemprop="email">tommasopatriti@gmail.com</a></p>
 <p class="footer-hours" itemprop="openingHours" content="Mo-Fr 10:00-20:00"><i data-lucide="clock" class="footer-icon"></i><span data-it="Lun–Ven 10:00–20:00" data-en="Mon–Fri 10:00–20:00">Lun–Ven 10:00–20:00</span></p>
+<p class="footer-contact footer-gmaps"><i data-lucide="navigation" class="footer-icon"></i><a href="https://maps.app.goo.gl/NGfcUqQhzyrYTmss9" target="_blank" rel="noopener noreferrer" data-it="Vedi su Google Maps" data-en="View on Google Maps">Vedi su Google Maps</a></p>
 </div>
 <div class="footer-main"><p>© 2026 Ing. Tommaso Patriti</p><p class="footer-vat">P.IVA 04291431205</p></div>
 <div class="footer-links"><a href="/" data-it="Torna alla home" data-en="Back to home">Torna alla home</a></div>

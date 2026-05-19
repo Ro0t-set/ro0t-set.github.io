@@ -59,71 +59,222 @@
         gtag('config', 'G-8JSLCWYJYF');
     </script>
     
-    <!-- Structured Data: LocalBusiness (Google Business Profile aligned) -->
+    <!-- Structured Data Graph: LocalBusiness + Person + WebSite + FAQPage (GBP-aligned, AI-citable) -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "ProfessionalService",
-        "@id": "https://tommasopatriti.me/#business",
-        "name": "Tommaso Patriti - Sviluppo Software e Applicazioni",
-        "alternateName": "Tommaso Patriti Software Engineer",
-        "image": "https://tommasopatriti.me/apple-touch-icon.png",
-        "logo": "https://tommasopatriti.me/favicon-512.png",
-        "url": "https://tommasopatriti.me/",
-        "telephone": "+393920752599",
-        "email": "tommasopatriti@gmail.com",
-        "priceRange": "€€",
-        "vatID": "IT04291431205",
-        "taxID": "04291431205",
-        "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "Via De Marchi 23",
-            "addressLocality": "Bologna",
-            "postalCode": "40123",
-            "addressRegion": "BO",
-            "addressCountry": "IT"
-        },
-        "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": 44.4943391,
-            "longitude": 11.3342916
-        },
-        "hasMap": "https://maps.app.goo.gl/NGfcUqQhzyrYTmss9",
-        "openingHoursSpecification": [
+        "@graph": [
             {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-                "opens": "10:00",
-                "closes": "20:00"
+                "@type": "ProfessionalService",
+                "@id": "https://tommasopatriti.me/#business",
+                "name": "Tommaso Patriti - Sviluppo Software e Applicazioni",
+                "alternateName": ["Tommaso Patriti Software Engineer", "Ing. Tommaso Patriti"],
+                "image": "https://tommasopatriti.me/apple-touch-icon.png",
+                "logo": "https://tommasopatriti.me/favicon-512.png",
+                "url": "https://tommasopatriti.me/",
+                "telephone": "+393920752599",
+                "email": "tommasopatriti@gmail.com",
+                "priceRange": "€€",
+                "vatID": "IT04291431205",
+                "taxID": "04291431205",
+                "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "Via De Marchi 23",
+                    "addressLocality": "Bologna",
+                    "postalCode": "40123",
+                    "addressRegion": "BO",
+                    "addressCountry": "IT"
+                },
+                "geo": {
+                    "@type": "GeoCoordinates",
+                    "latitude": 44.4943391,
+                    "longitude": 11.3342916
+                },
+                "hasMap": "https://maps.app.goo.gl/NGfcUqQhzyrYTmss9",
+                "openingHoursSpecification": [
+                    {
+                        "@type": "OpeningHoursSpecification",
+                        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                        "opens": "10:00",
+                        "closes": "20:00"
+                    }
+                ],
+                "areaServed": [
+                    { "@type": "City", "name": "Bologna" },
+                    { "@type": "AdministrativeArea", "name": "Emilia-Romagna" },
+                    { "@type": "Country", "name": "Italia" }
+                ],
+                "founder": { "@id": "https://tommasopatriti.me/#person" },
+                "employee": { "@id": "https://tommasopatriti.me/#person" },
+                "aggregateRating": {
+                    "@type": "AggregateRating",
+                    "ratingValue": "5.0",
+                    "bestRating": "5",
+                    "worstRating": "1",
+                    "ratingCount": "4",
+                    "reviewCount": "4"
+                },
+                "review": [
+                    {
+                        "@type": "Review",
+                        "author": { "@type": "Organization", "name": "Viral Digital Agency" },
+                        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+                        "datePublished": "2026-05-19",
+                        "reviewBody": "Abbiamo fatto sviluppare il nostro sito a Tommaso e ci ha offerto un servizio impeccabile in termini di qualità e tempi di consegna.",
+                        "publisher": { "@type": "Organization", "name": "Google" }
+                    },
+                    {
+                        "@type": "Review",
+                        "author": { "@type": "Person", "name": "Alessandro Caruso" },
+                        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+                        "datePublished": "2026-05-19",
+                        "reviewBody": "Lavorare con lui è stata una svolta. Oltre a essere un developer bravissimo e velocissimo (ha consegnato in anticipo), ha avuto una pazienza infinita nel formarmi e nel sistemare ogni mio piccolo dettaglio. Un vero professionista.",
+                        "publisher": { "@type": "Organization", "name": "Google" }
+                    },
+                    {
+                        "@type": "Review",
+                        "author": { "@type": "Person", "name": "Alessandro Mazzoli" },
+                        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+                        "datePublished": "2026-05-19",
+                        "reviewBody": "Professionista serio, competente e molto disponibile. Ha gestito il progetto con grande precisione e comunicazione sempre chiara, rispettando pienamente le tempistiche concordate.",
+                        "publisher": { "@type": "Organization", "name": "Google" }
+                    }
+                ],
+                "sameAs": [
+                    "https://github.com/Ro0t-set",
+                    "https://www.linkedin.com/in/tommaso-patriti/",
+                    "https://maps.app.goo.gl/NGfcUqQhzyrYTmss9"
+                ],
+                "knowsAbout": ["Microservizi", "Sistemi Distribuiti", "Cloud Computing", "Kubernetes", "Docker", "Java", "Kotlin", "Go", "Python", "Scala", "TypeScript", "React", "Angular", "Vue.js", "Node.js", "Spring Boot", "Sviluppo Software a Bologna", "Sviluppo Applicazioni Mobile", "API REST", "Architetture Cloud-native", "Semplificazione Infrastrutture"],
+                "knowsLanguage": ["it", "en"],
+                "makesOffer": [
+                    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Architetture Microservizi", "url": "https://tommasopatriti.me/microservizi.html" } },
+                    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cloud & DevOps", "url": "https://tommasopatriti.me/cloud-devops.html" } },
+                    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Backend Development", "url": "https://tommasopatriti.me/backend-development.html" } },
+                    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Semplificazione Infrastrutture", "url": "https://tommasopatriti.me/semplificazione-infrastrutture.html" } },
+                    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Sviluppo IoT & Embedded", "url": "https://tommasopatriti.me/iot-embedded.html" } }
+                ],
+                "slogan": "Codice pulito ed elegante. La semplicità come filosofia."
+            },
+            {
+                "@type": "Person",
+                "@id": "https://tommasopatriti.me/#person",
+                "name": "Tommaso Patriti",
+                "honorificPrefix": "Ing.",
+                "givenName": "Tommaso",
+                "familyName": "Patriti",
+                "jobTitle": "Software Engineer Freelance",
+                "image": "https://avatars.githubusercontent.com/u/14377433?v=4",
+                "url": "https://tommasopatriti.me/",
+                "email": "tommasopatriti@gmail.com",
+                "telephone": "+393920752599",
+                "worksFor": { "@id": "https://tommasopatriti.me/#business" },
+                "workLocation": { "@id": "https://tommasopatriti.me/#business" },
+                "alumniOf": [
+                    {
+                        "@type": "CollegeOrUniversity",
+                        "name": "Università di Bologna",
+                        "url": "https://www.unibo.it/"
+                    },
+                    {
+                        "@type": "CollegeOrUniversity",
+                        "name": "Universitat Politècnica de Catalunya (UPC Barcelona)",
+                        "url": "https://www.upc.edu/"
+                    }
+                ],
+                "hasCredential": [
+                    {
+                        "@type": "EducationalOccupationalCredential",
+                        "credentialCategory": "degree",
+                        "educationalLevel": "Laurea Magistrale",
+                        "name": "Laurea Magistrale in Ingegneria e Scienze Informatiche (110L)"
+                    },
+                    {
+                        "@type": "EducationalOccupationalCredential",
+                        "credentialCategory": "degree",
+                        "educationalLevel": "Laurea Triennale",
+                        "name": "Laurea Triennale in Ingegneria e Scienze Informatiche (103)"
+                    }
+                ],
+                "knowsAbout": ["Microservices", "Distributed Systems", "Cloud Computing", "Kubernetes", "Java", "Kotlin", "Go", "Spring Boot", "Clean Code", "Clean Architecture"],
+                "knowsLanguage": ["it", "en", "es"],
+                "sameAs": [
+                    "https://github.com/Ro0t-set",
+                    "https://www.linkedin.com/in/tommaso-patriti/"
+                ]
+            },
+            {
+                "@type": "WebSite",
+                "@id": "https://tommasopatriti.me/#website",
+                "url": "https://tommasopatriti.me/",
+                "name": "Tommaso Patriti - Sviluppo Software e Applicazioni",
+                "publisher": { "@id": "https://tommasopatriti.me/#business" },
+                "inLanguage": ["it-IT", "en-US"]
+            },
+            {
+                "@type": "WebPage",
+                "@id": "https://tommasopatriti.me/#webpage",
+                "url": "https://tommasopatriti.me/",
+                "name": "Tommaso Patriti - Sviluppo Software e Applicazioni | Software Engineer Freelance Bologna",
+                "isPartOf": { "@id": "https://tommasopatriti.me/#website" },
+                "about": { "@id": "https://tommasopatriti.me/#business" },
+                "primaryImageOfPage": "https://tommasopatriti.me/apple-touch-icon.png",
+                "inLanguage": "it-IT"
+            },
+            {
+                "@type": "FAQPage",
+                "@id": "https://tommasopatriti.me/#faq",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "Dove ha sede Tommaso Patriti come Software Engineer Freelance?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Tommaso Patriti opera da Bologna (Via De Marchi 23, 40123 Bologna BO, Italia). Lavora con clienti in tutta Italia e in remoto in Europa."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Quali servizi di sviluppo software offre Tommaso Patriti?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Architetture a microservizi, cloud & DevOps (Docker, Kubernetes), backend in Java/Kotlin/Go/Python, semplificazione di infrastrutture over-engineered, sviluppo IoT/embedded e progetti frontend (React, Angular, Vue.js)."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Tommaso Patriti è iscritto all'albo degli Ingegneri?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Sì. Ha conseguito la Laurea Magistrale in Ingegneria e Scienze Informatiche all'Università di Bologna con 110 e lode ed è iscritto all'albo, da cui il titolo Ing."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Quali sono gli orari di disponibilità e come contattarlo?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Lunedì–Venerdì 10:00–20:00 CET. Contatti diretti: telefono/WhatsApp +39 392 075 2599, email tommasopatriti@gmail.com, PEC tommaso.patriti@ingpec.eu."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Lavora anche con piccole aziende o solo enterprise?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Lavora sia con startup e PMI sia con realtà enterprise. Ha collaborato con Dallara Automobili, Università di Bologna, AgriMercati, Elaria, IDEM Srl e Nowhere Solutions & Web tra gli altri."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Qual è la P.IVA per fatturazione B2B?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "P.IVA IT04291431205. Emette fattura elettronica via SDI e accetta pagamenti tramite bonifico o sistemi B2B standard."
+                        }
+                    }
+                ]
             }
-        ],
-        "areaServed": [
-            { "@type": "City", "name": "Bologna" },
-            { "@type": "AdministrativeArea", "name": "Emilia-Romagna" },
-            { "@type": "Country", "name": "Italia" }
-        ],
-        "founder": {
-            "@type": "Person",
-            "@id": "https://tommasopatriti.me/#person",
-            "name": "Tommaso Patriti",
-            "honorificPrefix": "Ing.",
-            "jobTitle": "Software Engineer",
-            "sameAs": [
-                "https://github.com/Ro0t-set",
-                "https://www.linkedin.com/in/tommaso-patriti/"
-            ]
-        },
-        "sameAs": [
-            "https://github.com/Ro0t-set",
-            "https://www.linkedin.com/in/tommaso-patriti/",
-            "https://maps.app.goo.gl/NGfcUqQhzyrYTmss9"
-        ],
-        "knowsAbout": ["Microservices", "Distributed Systems", "Cloud Computing", "Java", "Kotlin", "Go", "Docker", "Kubernetes", "Sviluppo Software", "Sviluppo Applicazioni", "App Mobile"],
-        "makesOffer": [
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Architetture Microservizi" } },
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cloud & DevOps" } },
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Backend Development" } },
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Semplificazione Infrastrutture" } }
         ]
     }
     </script>
@@ -602,7 +753,77 @@
                 <i data-lucide="arrow-right"></i>
             </a>
         </section>
-        
+
+        <!-- Google Reviews Section -->
+        <section class="section reveal" aria-labelledby="reviews-heading">
+            <h2 id="reviews-heading" class="section-title" data-it="Recensioni Google" data-en="Google Reviews">Recensioni Google</h2>
+
+            <div class="reviews-summary">
+                <div class="reviews-rating">
+                    <span class="reviews-rating-value">5,0</span>
+                    <div class="reviews-stars" aria-label="5 stelle su 5">
+                        <i data-lucide="star" class="star-filled"></i>
+                        <i data-lucide="star" class="star-filled"></i>
+                        <i data-lucide="star" class="star-filled"></i>
+                        <i data-lucide="star" class="star-filled"></i>
+                        <i data-lucide="star" class="star-filled"></i>
+                    </div>
+                    <span class="reviews-count" data-it="su 4 recensioni" data-en="from 4 reviews">su 4 recensioni</span>
+                </div>
+                <a href="https://maps.app.goo.gl/NGfcUqQhzyrYTmss9" target="_blank" rel="noopener noreferrer" class="reviews-cta">
+                    <i data-lucide="external-link"></i>
+                    <span data-it="Vedi tutte su Google" data-en="See all on Google">Vedi tutte su Google</span>
+                </a>
+            </div>
+
+            <div class="reviews-grid reveal-stagger">
+                <article class="review-card">
+                    <div class="review-stars" aria-label="5 stelle">
+                        <i data-lucide="star" class="star-filled"></i>
+                        <i data-lucide="star" class="star-filled"></i>
+                        <i data-lucide="star" class="star-filled"></i>
+                        <i data-lucide="star" class="star-filled"></i>
+                        <i data-lucide="star" class="star-filled"></i>
+                    </div>
+                    <p class="review-body">"Abbiamo fatto sviluppare il nostro sito a Tommaso e ci ha offerto un servizio impeccabile in termini di qualità e tempi di consegna."</p>
+                    <div class="review-author">
+                        <strong>Viral Digital Agency</strong>
+                        <span class="review-meta" data-it="Recensione Google" data-en="Google Review">Recensione Google</span>
+                    </div>
+                </article>
+
+                <article class="review-card">
+                    <div class="review-stars" aria-label="5 stelle">
+                        <i data-lucide="star" class="star-filled"></i>
+                        <i data-lucide="star" class="star-filled"></i>
+                        <i data-lucide="star" class="star-filled"></i>
+                        <i data-lucide="star" class="star-filled"></i>
+                        <i data-lucide="star" class="star-filled"></i>
+                    </div>
+                    <p class="review-body">"Lavorare con lui è stata una svolta. Oltre a essere un developer bravissimo e velocissimo (ha consegnato in anticipo), ha avuto una pazienza infinita nel formarmi e nel sistemare ogni mio piccolo dettaglio. Un vero professionista."</p>
+                    <div class="review-author">
+                        <strong>Alessandro Caruso</strong>
+                        <span class="review-meta" data-it="Recensione Google" data-en="Google Review">Recensione Google</span>
+                    </div>
+                </article>
+
+                <article class="review-card">
+                    <div class="review-stars" aria-label="5 stelle">
+                        <i data-lucide="star" class="star-filled"></i>
+                        <i data-lucide="star" class="star-filled"></i>
+                        <i data-lucide="star" class="star-filled"></i>
+                        <i data-lucide="star" class="star-filled"></i>
+                        <i data-lucide="star" class="star-filled"></i>
+                    </div>
+                    <p class="review-body">"Professionista serio, competente e molto disponibile. Ha gestito il progetto con grande precisione e comunicazione sempre chiara, rispettando pienamente le tempistiche concordate."</p>
+                    <div class="review-author">
+                        <strong>Alessandro Mazzoli</strong>
+                        <span class="review-meta" data-it="Recensione Google" data-en="Google Review">Recensione Google</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+
         <!-- Contact Section -->
         <section class="section reveal" aria-labelledby="contact-heading">
             <h2 id="contact-heading" class="section-title" data-it="Contatti" data-en="Contact">Contatti</h2>
@@ -653,6 +874,10 @@
             <p class="footer-hours" itemprop="openingHours" content="Mo-Fr 10:00-20:00">
                 <i data-lucide="clock" class="footer-icon"></i>
                 <span data-it="Lun–Ven 10:00–20:00" data-en="Mon–Fri 10:00–20:00">Lun–Ven 10:00–20:00</span>
+            </p>
+            <p class="footer-contact footer-gmaps">
+                <i data-lucide="navigation" class="footer-icon"></i>
+                <a href="https://maps.app.goo.gl/NGfcUqQhzyrYTmss9" target="_blank" rel="noopener noreferrer" data-it="Vedi su Google Maps" data-en="View on Google Maps">Vedi su Google Maps</a>
             </p>
         </div>
         <div class="footer-main">

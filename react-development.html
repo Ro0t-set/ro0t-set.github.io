@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- SEO Meta Tags -->
-    <title>Sviluppo React Bologna | Tommaso Patriti - Software Engineer Freelance</title>
-    <meta name="description" content="Sviluppo React professionale a Bologna. Software Engineer Freelance specializzato in applicazioni React moderne e performanti. Consulenza e sviluppo in Emilia-Romagna. P.IVA 04291431205">
+    <title data-it="Sviluppo React a Bologna | Frontend SPA, Next.js, TypeScript | Tommaso Patriti" data-en="React Development in Bologna | SPA Frontend, Next.js, TypeScript | Tommaso Patriti">Sviluppo React a Bologna | Frontend SPA, Next.js, TypeScript | Tommaso Patriti</title>
+    <meta name="description" content="Sviluppo applicazioni React a Bologna. SPA performanti, Next.js, TypeScript, state management moderno (Zustand, TanStack Query), testing. Software Engineer Freelance.">
     <meta name="keywords" content="react, sviluppo react, react bologna, frontend, javascript, typescript, software engineer, freelance, emilia-romagna">
     <meta name="author" content="Tommaso Patriti">
     <meta name="robots" content="index, follow">
@@ -17,13 +17,13 @@
 
     <!-- Open Graph / Social -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://tommasopatriti.me/react-development">
-    <meta property="og:title" content="Sviluppo React Bologna | Tommaso Patriti">
-    <meta property="og:description" content="Sviluppo React professionale a Bologna e Emilia-Romagna.">
+    <meta property="og:url" content="https://tommasopatriti.me/react-development.html">
+    <meta property="og:title" content="Sviluppo React a Bologna | Frontend SPA, Next.js, TypeScript | Tommaso Patriti">
+    <meta property="og:description" content="Sviluppo applicazioni React a Bologna. SPA performanti, Next.js, TypeScript, state management moderno (Zustand, TanStack Query), testing. Software Engineer Freelance.">
     <meta property="og:image" content="https://tommasopatriti.me/og-image.png">
 
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://tommasopatriti.me/react-development">
+    <link rel="canonical" href="https://tommasopatriti.me/react-development.html">
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2">
@@ -51,21 +51,152 @@
 
     <!-- Structured Data -->
     <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
     {
-        "@context": "https://schema.org",
-        "@type": "Service",
-        "serviceType": "Sviluppo React",
-        "provider": {
-            "@type": "Person",
-            "name": "Tommaso Patriti",
-            "url": "https://tommasopatriti.me"
+      "@type": "BreadcrumbList",
+      "@id": "https://tommasopatriti.me/react-development.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://tommasopatriti.me/"
         },
-        "areaServed": ["Bologna", "Emilia-Romagna", "Italia"],
-        "description": "Sviluppo applicazioni React professionali e performanti"
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "React",
+          "item": "https://tommasopatriti.me/react-development.html"
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://tommasopatriti.me/react-development.html#service",
+      "name": "Sviluppo React",
+      "description": "Sviluppo di applicazioni React a Bologna. SPA performanti, Next.js per SSR/SSG, TypeScript, state management con Zustand o Redux Toolkit, testing con Vitest e React Testing Library.",
+      "url": "https://tommasopatriti.me/react-development.html",
+      "serviceType": "Sviluppo React",
+      "provider": {
+        "@id": "https://tommasopatriti.me/#business"
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Bologna"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Emilia-Romagna"
+        },
+        {
+          "@type": "Country",
+          "name": "Italia"
+        }
+      ],
+      "audience": {
+        "@type": "BusinessAudience",
+        "audienceType": "Aziende, startup, PMI"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Sviluppo React"
+      }
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://tommasopatriti.me/#business",
+      "name": "Tommaso Patriti - Sviluppo Software e Applicazioni",
+      "url": "https://tommasopatriti.me/",
+      "telephone": "+393920752599",
+      "email": "tommasopatriti@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Via De Marchi 23",
+        "addressLocality": "Bologna",
+        "postalCode": "40123",
+        "addressRegion": "BO",
+        "addressCountry": "IT"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 44.4943391,
+        "longitude": 11.3342916
+      },
+      "hasMap": "https://maps.app.goo.gl/NGfcUqQhzyrYTmss9",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "bestRating": "5",
+        "worstRating": "1",
+        "ratingCount": "4",
+        "reviewCount": "4"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://tommasopatriti.me/react-development.html#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "React, Next.js o Remix?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "React puro (Vite) per SPA interne o dashboard. Next.js per progetti pubblici che richiedono SEO, ISR/SSG, edge runtime. Remix è ottimo ma Next.js ha ecosistema più ampio per la maggior parte dei casi."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "State management: Redux, Zustand o Context?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Context per stato globale piccolo (auth, theme). Zustand per stato applicativo medio-grande con DX ottima. Redux Toolkit per progetti enterprise con team grandi che richiedono pattern uniformi e devtools maturi. TanStack Query per server state."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Sviluppate anche backend o solo frontend React?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Faccio entrambi. Spesso è meglio avere una sola persona end-to-end per progetti piccoli: meno overhead, allineamento API contract immediato."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Recentemente ho sviluppato un client web React per Università di Bologna",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sì, frontend React per una piattaforma di prevenzione abbandono universitario con analisi predittive. Vedi la sezione progetti nella home page."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quanto tempo per sviluppare una webapp React production-ready?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Un MVP con 5-8 schermate, auth, design system base e deploy in CI si fa in 3-6 settimane. Dipende molto da quanto è chiaro il design e quanto sono complesse le interazioni."
+          }
+        }
+      ]
     }
-    </script>
+  ]
+}
+</script>
 
     <link rel="stylesheet" href="styles.css">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sviluppo React a Bologna | Frontend SPA, Next.js, TypeScript | Tommaso Patriti">
+<meta name="twitter:description" content="Sviluppo applicazioni React a Bologna. SPA performanti, Next.js, TypeScript, state management moderno (Zustand, TanStack Query), testing. Software Engineer Freelance.">
+<meta name="twitter:image" content="https://tommasopatriti.me/apple-touch-icon.png">
+
+<link rel="alternate" hreflang="it" href="https://tommasopatriti.me/react-development.html">
+<link rel="alternate" hreflang="en" href="https://tommasopatriti.me/react-development.html">
+<link rel="alternate" hreflang="x-default" href="https://tommasopatriti.me/react-development.html">
+<!-- SEO-OPTIMIZED-V2 -->
+<!-- SEO-OPTIMIZED-V3-with-rating -->
 </head>
 <body>
     <!-- Top Navigation -->
@@ -81,7 +212,7 @@
                     <span data-it="Servizio Frontend" data-en="Frontend Service">Servizio Frontend</span>
                 </div>
 
-                <h1 class="name" data-it="Sviluppo React" data-en="React Development">Sviluppo React</h1>
+                <h1 class="name" data-it="Sviluppo React a Bologna" data-en="React Development in Bologna">Sviluppo React a Bologna</h1>
                 <p class="section-text" data-it="Applicazioni React moderne e performanti. Sviluppo interfacce utente reattive, SPA scalabili, componenti riusabili con hooks, state management avanzato e architetture scalabili." data-en="Modern and performant React applications. Development of reactive user interfaces, scalable SPAs, reusable components with hooks, advanced state management and scalable architectures.">
                     Applicazioni React moderne e performanti. Sviluppo interfacce utente reattive, SPA scalabili, componenti riusabili con hooks, state management avanzato e architetture scalabili.
                 </p>
@@ -214,7 +345,18 @@
                 </div>
             </form>
         </section>
-    </main>
+    <!-- FAQ Section -->
+<section class="section reveal" aria-labelledby="faq-heading">
+<h2 id="faq-heading" class="section-title" data-it="Domande frequenti" data-en="Frequently asked questions">Domande frequenti</h2>
+<div class="faq-list">
+<details class="faq-item"><summary class="faq-question">React, Next.js o Remix?</summary><div class="faq-answer"><p>React puro (Vite) per SPA interne o dashboard. Next.js per progetti pubblici che richiedono SEO, ISR/SSG, edge runtime. Remix è ottimo ma Next.js ha ecosistema più ampio per la maggior parte dei casi.</p></div></details>
+<details class="faq-item"><summary class="faq-question">State management: Redux, Zustand o Context?</summary><div class="faq-answer"><p>Context per stato globale piccolo (auth, theme). Zustand per stato applicativo medio-grande con DX ottima. Redux Toolkit per progetti enterprise con team grandi che richiedono pattern uniformi e devtools maturi. TanStack Query per server state.</p></div></details>
+<details class="faq-item"><summary class="faq-question">Sviluppate anche backend o solo frontend React?</summary><div class="faq-answer"><p>Faccio entrambi. Spesso è meglio avere una sola persona end-to-end per progetti piccoli: meno overhead, allineamento API contract immediato.</p></div></details>
+<details class="faq-item"><summary class="faq-question">Recentemente ho sviluppato un client web React per Università di Bologna</summary><div class="faq-answer"><p>Sì, frontend React per una piattaforma di prevenzione abbandono universitario con analisi predittive. Vedi la sezione progetti nella home page.</p></div></details>
+<details class="faq-item"><summary class="faq-question">Quanto tempo per sviluppare una webapp React production-ready?</summary><div class="faq-answer"><p>Un MVP con 5-8 schermate, auth, design system base e deploy in CI si fa in 3-6 settimane. Dipende molto da quanto è chiaro il design e quanto sono complesse le interazioni.</p></div></details>
+</div>
+</section>
+</main>
 
     <!-- Footer -->
     <footer class="footer" itemscope itemtype="https://schema.org/ProfessionalService">
@@ -224,6 +366,7 @@
 <p class="footer-contact"><i data-lucide="phone" class="footer-icon"></i><a href="tel:+393920752599" itemprop="telephone">+39 392 075 2599</a></p>
 <p class="footer-contact"><i data-lucide="mail" class="footer-icon"></i><a href="mailto:tommasopatriti@gmail.com" itemprop="email">tommasopatriti@gmail.com</a></p>
 <p class="footer-hours" itemprop="openingHours" content="Mo-Fr 10:00-20:00"><i data-lucide="clock" class="footer-icon"></i><span data-it="Lun–Ven 10:00–20:00" data-en="Mon–Fri 10:00–20:00">Lun–Ven 10:00–20:00</span></p>
+<p class="footer-contact footer-gmaps"><i data-lucide="navigation" class="footer-icon"></i><a href="https://maps.app.goo.gl/NGfcUqQhzyrYTmss9" target="_blank" rel="noopener noreferrer" data-it="Vedi su Google Maps" data-en="View on Google Maps">Vedi su Google Maps</a></p>
 </div>
 <div class="footer-main"><p>© 2026 Ing. Tommaso Patriti</p><p class="footer-vat">P.IVA 04291431205</p></div>
 <div class="footer-links"><a href="/" data-it="Torna alla home" data-en="Back to home">Torna alla home</a></div>
