@@ -38,7 +38,7 @@ const CV_DATA = {
                     description: { it: "Progettazione e sviluppo di architetture microservizi, sistemi distribuiti e soluzioni cloud-native.", en: "Design and development of microservices architectures, distributed systems and cloud-native solutions." }
                 },
                 {
-                    date: { it: "Mag 2025 — Presente", en: "May 2025 — Present" },
+                    date: { it: "Mag 2025 — Apr 2026", en: "May 2025 — Apr 2026" },
                     title: { it: "Collaboratore di ricerca", en: "Research Collaborator" },
                     company: { it: "Università di Bologna — CIRI ICT", en: "University of Bologna — CIRI ICT" },
                     description: { it: "Progetto di ricerca industriale strategica DISCOV.ER (PR FESR 2021–2027). Sviluppo di modelli di simulazione e predizione di dati ambientali mediante tecniche AI, validazione su dataset del Parco del Delta del Po, integrazione in piattaforma Digital Twin.", en: "Strategic industrial research project DISCOV.ER (PR FESR 2021–2027). Development of AI simulation and prediction models for environmental data, validation on Po Delta Park datasets, Digital Twin platform integration." },
@@ -94,6 +94,7 @@ const CV_DATA = {
                     date: { it: "Apr 2026 — Presente", en: "Apr 2026 — Present" },
                     title: { it: "Sviluppatore Android", en: "Android Developer" },
                     client: "IDEM Srl",
+                    description: { it: "Sviluppo Android in ambito monetica.", en: "Android development for payment systems." },
                     logo: "assets/logos/idem.png",
                     tech: ["Android SDK", "Kotlin", "Java", "RabbitMQ", { it: "Architettura Esagonale", en: "Hexagonal Architecture" }, "Scrum"]
                 },
@@ -138,7 +139,7 @@ const CV_DATA = {
                     logo: "assets/logos/elaria.png"
                 },
                 {
-                    date: { it: "Mag 2025 — Presente", en: "May 2025 — Present" },
+                    date: { it: "Mag 2025 — Apr 2026", en: "May 2025 — Apr 2026" },
                     title: "Discov.er",
                     client: { it: "Università di Bologna — Progetto FESR", en: "University of Bologna — FESR Project" },
                     description: { it: "Progetto di ricerca industriale strategica DISCOV.ER (PR FESR 2021–2027). Sviluppo di modelli di simulazione e previsione di dati ambientali con tecniche di AI e Machine Learning.", en: "Strategic industrial research project DISCOV.ER (PR FESR 2021–2027). Development of simulation and prediction models for environmental data using AI and Machine Learning techniques." },
@@ -152,9 +153,13 @@ const CV_DATA = {
             label: { it: "Stack Tecnologico", en: "Tech Stack" },
             type: "tags",
             categories: [
-                { label: { it: "Linguaggi", en: "Languages" }, tags: ["Java", "Kotlin", "Go", "Python", "Scala", "TypeScript"] },
-                { label: { it: "Framework", en: "Frameworks" }, tags: ["Spring Boot", "Micronaut", "Node.js", "Vue.js", "React"] },
-                { label: "DevOps", tags: ["Docker", "Kubernetes", "Docker Swarm", "Traefik", "GitHub Actions"] }
+                { label: { it: "Linguaggi", en: "Languages" }, tags: ["Java", "Kotlin", "Go", "Python", "Scala", "TypeScript", "JavaScript"] },
+                { label: "Backend", tags: ["Spring Boot", "Micronaut", "Quarkus", "Node.js", "NestJS", "REST API", "JPA/Hibernate"] },
+                { label: { it: "Frontend e Mobile", en: "Frontend & Mobile" }, tags: ["React", "Angular", "Vue.js", "Astro", "Vite", "Tailwind CSS", "Android SDK"] },
+                { label: { it: "Cloud e DevOps", en: "Cloud & DevOps" }, tags: ["Docker", "Kubernetes", "Docker Swarm", "DigitalOcean", "GitHub Actions", "Terraform", "KEDA"] },
+                { label: { it: "Dati e AI", en: "Data & AI" }, tags: ["Machine Learning", "LLM", "OCR", "Data Pipeline", "Jupyter", "PostgreSQL", "Redis"] },
+                { label: { it: "Architetture", en: "Architecture" }, tags: [{ it: "Microservizi", en: "Microservices" }, { it: "Sistemi distribuiti", en: "Distributed Systems" }, "Event-driven", "RabbitMQ", "Kafka", "Keycloak", "Traefik", "Prometheus", "Grafana"] },
+                { label: { it: "Qualità", en: "Quality" }, tags: ["TDD", "BDD", "JUnit 5", "Cucumber", "CI/CD", "Clean Architecture"] }
             ]
         },
         {

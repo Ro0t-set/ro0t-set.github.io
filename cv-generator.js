@@ -194,11 +194,498 @@
         });
     }
 
-    // --- Template CV HTML per PDF ---
-    function buildCvHtml(selectedKeys) {
-        var m = CV_DATA.meta;
+    // --- PDF vettoriale ---
+    var PDF_COLORS = {
+        accent: '#0b63f6',
+        accentDark: '#0648b7',
+        text: '#171717',
+        softText: '#525866',
+        muted: '#7b8494',
+        rule: '#d9dee8',
+        lightRule: '#e8edf5',
+        surface: '#f7f9fc',
+        tagFill: '#eef4ff'
+    };
 
-        // Usa l'ordine corrente delle sezioni, filtrando solo quelle selezionate
+    var MONTHS = {
+        gen: 1, gennaio: 1, jan: 1, january: 1,
+        feb: 2, febbraio: 2, february: 2,
+        mar: 3, marzo: 3, march: 3,
+        apr: 4, aprile: 4, april: 4,
+        mag: 5, maggio: 5, may: 5,
+        giu: 6, giugno: 6, jun: 6, june: 6,
+        lug: 7, luglio: 7, jul: 7, july: 7,
+        ago: 8, agosto: 8, aug: 8, august: 8,
+        set: 9, settembre: 9, sep: 9, sept: 9, september: 9,
+        ott: 10, ottobre: 10, oct: 10, october: 10,
+        nov: 11, novembre: 11, november: 11,
+        dic: 12, dicembre: 12, dec: 12, december: 12
+    };
+
+    function cleanText(value) {
+        return String(value == null ? '' : value).replace(/\s+/g, ' ').trim();
+    }
+
+    function rawDateText(value) {
+        if (value == null) return '';
+        if (typeof value === 'string') return value;
+        return value.it || value.en || t(value);
+    }
+
+    function parseDatePoint(text, isEnd) {
+        var normalized = cleanText(text).toLowerCase().replace(/\./g, '');
+        if (/presente|present|current|oggi/.test(normalized)) return 999912;
+
+        var monthPattern = '(gennaio|gen|january|jan|febbraio|feb|february|marzo|mar|march|aprile|apr|april|maggio|mag|may|giugno|giu|june|jun|luglio|lug|july|jul|agosto|ago|august|aug|settembre|set|september|sept|sep|ottobre|ott|october|oct|novembre|nov|november|dicembre|dic|december|dec)';
+        var monthMatch = normalized.match(new RegExp('\\b' + monthPattern + '\\s+(19\\d{2}|20\\d{2})\\b'));
+        if (monthMatch) {
+            return Number(monthMatch[2]) * 100 + MONTHS[monthMatch[1]];
+        }
+
+        var years = normalized.match(/\b(19\d{2}|20\d{2})\b/g);
+        if (years && years.length) {
+            var year = Number(isEnd ? years[years.length - 1] : years[0]);
+            return year * 100 + (isEnd ? 12 : 1);
+        }
+
+        return 0;
+    }
+
+    function chronologicalScore(item, index) {
+        var parts = rawDateText(item.date).split(/\s+[—–-]\s+/);
+        var start = parseDatePoint(parts[0], false);
+        var end = parts.length > 1 ? parseDatePoint(parts[parts.length - 1], true) : parseDatePoint(parts[0], true);
+        return { item: item, start: start, end: end, index: index };
+    }
+
+    function sortItemsByDateDesc(items) {
+        return items.map(chronologicalScore).sort(function (a, b) {
+            if (b.end !== a.end) return b.end - a.end;
+            if (b.start !== a.start) return b.start - a.start;
+            return a.index - b.index;
+        }).map(function (entry) {
+            return entry.item;
+        });
+    }
+
+    function hexToRgb(hex) {
+        var normalized = hex.replace('#', '');
+        return {
+            r: parseInt(normalized.slice(0, 2), 16),
+            g: parseInt(normalized.slice(2, 4), 16),
+            b: parseInt(normalized.slice(4, 6), 16)
+        };
+    }
+
+    function setTextColor(doc, hex) {
+        var color = hexToRgb(hex);
+        doc.setTextColor(color.r, color.g, color.b);
+    }
+
+    function setDrawColor(doc, hex) {
+        var color = hexToRgb(hex);
+        doc.setDrawColor(color.r, color.g, color.b);
+    }
+
+    function setFillColor(doc, hex) {
+        var color = hexToRgb(hex);
+        doc.setFillColor(color.r, color.g, color.b);
+    }
+
+    function setFont(doc, size, style, color) {
+        doc.setFont('helvetica', style || 'normal');
+        doc.setFontSize(size);
+        setTextColor(doc, color || PDF_COLORS.text);
+    }
+
+    function lineHeight(size, multiplier) {
+        return size * 0.3528 * (multiplier || 1.32);
+    }
+
+    function createPdfState(doc) {
+        return {
+            doc: doc,
+            pageW: 210,
+            pageH: 297,
+            marginL: 17,
+            marginR: 17,
+            marginT: 16,
+            marginB: 17,
+            contentW: 176,
+            y: 16
+        };
+    }
+
+    function pageBottom(state) {
+        return state.pageH - state.marginB;
+    }
+
+    function drawContinuationHeader(state) {
+        var doc = state.doc;
+        setFont(doc, 7.5, 'bold', PDF_COLORS.muted);
+        doc.text(CV_DATA.meta.name, state.marginL, 12);
+        setFont(doc, 7.5, 'normal', PDF_COLORS.muted);
+        doc.text('Curriculum Vitae', state.pageW - state.marginR, 12, { align: 'right' });
+        setDrawColor(doc, PDF_COLORS.lightRule);
+        doc.setLineWidth(0.25);
+        doc.line(state.marginL, 15, state.pageW - state.marginR, 15);
+        state.y = 23;
+    }
+
+    function addPage(state) {
+        state.doc.addPage();
+        state.y = state.marginT;
+        drawContinuationHeader(state);
+    }
+
+    function ensureSpace(state, height) {
+        if (state.y + height > pageBottom(state)) addPage(state);
+    }
+
+    function wrapText(doc, text, width, size, style) {
+        setFont(doc, size, style || 'normal', PDF_COLORS.text);
+        return doc.splitTextToSize(cleanText(text), width);
+    }
+
+    function drawLines(state, lines, x, y, size, style, color, multiplier) {
+        var doc = state.doc;
+        var lh = lineHeight(size, multiplier);
+        setFont(doc, size, style || 'normal', color || PDF_COLORS.text);
+        for (var i = 0; i < lines.length; i++) {
+            doc.text(lines[i], x, y);
+            y += lh;
+        }
+        return y;
+    }
+
+    function measureTags(tags, maxWidth, fontSize, padX, tagH, gap) {
+        var doc = measureTags.doc;
+        var x = 0;
+        var rows = 1;
+        setFont(doc, fontSize, 'normal', PDF_COLORS.softText);
+
+        tags.forEach(function (tag) {
+            var label = cleanText(t(tag));
+            var width = Math.min(maxWidth, doc.getTextWidth(label) + padX * 2);
+            if (x > 0 && x + width > maxWidth) {
+                rows++;
+                x = 0;
+            }
+            x += width + gap;
+        });
+
+        return rows * tagH + (rows - 1) * gap;
+    }
+
+    function drawTags(state, tags, x, y, maxWidth, options) {
+        var doc = state.doc;
+        var fontSize = options.fontSize || 7;
+        var padX = options.padX || 2.6;
+        var tagH = options.tagH || 5.2;
+        var gap = options.gap || 2;
+        var cursorX = 0;
+
+        setFont(doc, fontSize, 'normal', options.text || PDF_COLORS.softText);
+
+        tags.forEach(function (tag) {
+            var label = cleanText(t(tag));
+            var width = Math.min(maxWidth, doc.getTextWidth(label) + padX * 2);
+            if (cursorX > 0 && cursorX + width > maxWidth) {
+                cursorX = 0;
+                y += tagH + gap;
+            }
+
+            setFillColor(doc, options.fill || PDF_COLORS.tagFill);
+            setDrawColor(doc, options.stroke || '#d6e5ff');
+            doc.setLineWidth(0.22);
+            doc.roundedRect(x + cursorX, y, width, tagH, 1.5, 1.5, 'FD');
+            setFont(doc, fontSize, 'normal', options.text || PDF_COLORS.softText);
+            doc.text(label, x + cursorX + padX, y + 3.55);
+            cursorX += width + gap;
+        });
+
+        return y + tagH;
+    }
+
+    function drawHeader(state) {
+        var doc = state.doc;
+        var m = CV_DATA.meta;
+        var rightX = state.pageW - state.marginR;
+        var contactY = state.y + 1;
+        var contacts = [m.phone, m.email, m.location, m.website, m.github, m.linkedin];
+        if (m.pec) contacts.splice(2, 0, m.pec + ' (PEC)');
+
+        setFillColor(doc, PDF_COLORS.accent);
+        doc.rect(0, 0, 4.2, state.pageH, 'F');
+
+        setFont(doc, 22, 'bold', PDF_COLORS.accentDark);
+        doc.text(m.name, state.marginL, state.y + 8);
+        setFont(doc, 10.5, 'normal', PDF_COLORS.softText);
+        doc.text(t(m.title), state.marginL, state.y + 15);
+        setFont(doc, 8, 'normal', PDF_COLORS.muted);
+        doc.text(m.vat, state.marginL, state.y + 21);
+
+        setFont(doc, 7.6, 'normal', PDF_COLORS.softText);
+        contacts.forEach(function (line) {
+            doc.text(line, rightX, contactY, { align: 'right' });
+            contactY += 4.1;
+        });
+
+        setDrawColor(doc, PDF_COLORS.rule);
+        doc.setLineWidth(0.35);
+        doc.line(state.marginL, 43, rightX, 43);
+        setDrawColor(doc, PDF_COLORS.accent);
+        doc.setLineWidth(1.05);
+        doc.line(state.marginL, 43, state.marginL + 42, 43);
+
+        state.y = 52;
+    }
+
+    function sectionStartHeight(state, section) {
+        var first = 0;
+        if (section.type === 'text') first = measureTextSection(state, section);
+        if (section.type === 'timeline') first = measureTimelineItem(state, sortItemsByDateDesc(section.items)[0]);
+        if (section.type === 'projects') first = measureProjectItem(state, sortItemsByDateDesc(section.items)[0]);
+        if (section.type === 'tags') {
+            first = section.categories.reduce(function (total, cat) {
+                return total + measureTagCategory(state, cat);
+            }, 0);
+        }
+        if (section.type === 'repos') {
+            for (var i = 0; i < section.items.length; i += 2) {
+                first += measureRepoRow(state, section.items.slice(i, i + 2));
+            }
+        }
+        if ((section.type === 'tags' || section.type === 'repos') && first <= pageBottom(state) - state.marginT - 12) {
+            return 12 + first;
+        }
+        return 12 + Math.min(first, 34);
+    }
+
+    function drawSectionHeading(state, label) {
+        var doc = state.doc;
+        if (state.y > 24) state.y += 4;
+
+        setFont(doc, 8.6, 'bold', PDF_COLORS.accentDark);
+        doc.text(cleanText(t(label)).toUpperCase(), state.marginL, state.y);
+        setDrawColor(doc, PDF_COLORS.lightRule);
+        doc.setLineWidth(0.25);
+        doc.line(state.marginL + 38, state.y - 1.2, state.pageW - state.marginR, state.y - 1.2);
+        state.y += 6.5;
+    }
+
+    function measureTextSection(state, section) {
+        var lines = wrapText(state.doc, t(section.content), state.contentW, 9.2, 'normal');
+        return lines.length * lineHeight(9.2, 1.42) + 2;
+    }
+
+    function drawTextSection(state, section) {
+        var lines = wrapText(state.doc, t(section.content), state.contentW, 9.2, 'normal');
+        ensureSpace(state, measureTextSection(state, section));
+        state.y = drawLines(state, lines, state.marginL, state.y, 9.2, 'normal', PDF_COLORS.softText, 1.42) + 1;
+    }
+
+    function measureTimelineItem(state, item) {
+        if (!item) return 0;
+        var contentW = state.contentW - 39;
+        var titleLines = wrapText(state.doc, t(item.title), contentW, 9.4, 'bold');
+        var orgLines = wrapText(state.doc, t(item.company), contentW, 8.4, 'bold');
+        var descLines = item.description ? wrapText(state.doc, t(item.description), contentW, 8.25, 'normal') : [];
+        return Math.max(5, titleLines.length * lineHeight(9.4, 1.18) + orgLines.length * lineHeight(8.4, 1.2) + descLines.length * lineHeight(8.25, 1.32) + 4.5);
+    }
+
+    function drawTimelineItem(state, item) {
+        var doc = state.doc;
+        var height = measureTimelineItem(state, item);
+        var xDate = state.marginL;
+        var xContent = state.marginL + 39;
+        var contentW = state.contentW - 39;
+        var y = state.y;
+
+        ensureSpace(state, height);
+        y = state.y;
+
+        setDrawColor(doc, PDF_COLORS.lightRule);
+        doc.setLineWidth(0.32);
+        doc.line(xContent - 5, y + 1.5, xContent - 5, y + height - 2);
+        setFillColor(doc, PDF_COLORS.accent);
+        doc.circle(xContent - 5, y + 2.3, 1.15, 'F');
+
+        setFont(doc, 7.1, 'normal', PDF_COLORS.muted);
+        doc.text(cleanText(t(item.date)), xDate, y + 2.9);
+
+        var cursorY = y + 2.9;
+        cursorY = drawLines(state, wrapText(doc, t(item.title), contentW, 9.4, 'bold'), xContent, cursorY, 9.4, 'bold', PDF_COLORS.text, 1.18);
+        cursorY = drawLines(state, wrapText(doc, t(item.company), contentW, 8.4, 'bold'), xContent, cursorY + 0.3, 8.4, 'bold', PDF_COLORS.accentDark, 1.2);
+        if (item.description) {
+            drawLines(state, wrapText(doc, t(item.description), contentW, 8.25, 'normal'), xContent, cursorY + 0.9, 8.25, 'normal', PDF_COLORS.softText, 1.32);
+        }
+
+        state.y = y + height + 2.5;
+    }
+
+    function measureProjectItem(state, item) {
+        if (!item) return 0;
+        var contentW = state.contentW - 39;
+        var titleLines = wrapText(state.doc, t(item.title), contentW, 9.4, 'bold');
+        var clientLines = wrapText(state.doc, t(item.client), contentW, 8.4, 'bold');
+        var descLines = item.description ? wrapText(state.doc, t(item.description), contentW, 8.15, 'normal') : [];
+        var height = titleLines.length * lineHeight(9.4, 1.18) + clientLines.length * lineHeight(8.4, 1.2) + descLines.length * lineHeight(8.15, 1.32) + 5.2;
+
+        if (item.tech && item.tech.length) {
+            measureTags.doc = state.doc;
+            height += measureTags(item.tech, contentW, 6.8, 2.3, 4.8, 1.8) + 2.5;
+        }
+
+        return Math.max(8, height);
+    }
+
+    function drawProjectItem(state, item) {
+        var doc = state.doc;
+        var height = measureProjectItem(state, item);
+        var xDate = state.marginL;
+        var xContent = state.marginL + 39;
+        var contentW = state.contentW - 39;
+        var y = state.y;
+
+        ensureSpace(state, height);
+        y = state.y;
+
+        setFillColor(doc, PDF_COLORS.surface);
+        setDrawColor(doc, PDF_COLORS.lightRule);
+        doc.setLineWidth(0.25);
+        doc.roundedRect(xContent - 2.8, y - 1.8, contentW + 5.6, height - 0.2, 2, 2, 'FD');
+
+        setFont(doc, 7.1, 'normal', PDF_COLORS.muted);
+        doc.text(cleanText(t(item.date)), xDate, y + 2.6);
+
+        var cursorY = y + 2.8;
+        cursorY = drawLines(state, wrapText(doc, t(item.title), contentW, 9.4, 'bold'), xContent, cursorY, 9.4, 'bold', PDF_COLORS.text, 1.18);
+        cursorY = drawLines(state, wrapText(doc, t(item.client), contentW, 8.4, 'bold'), xContent, cursorY + 0.3, 8.4, 'bold', PDF_COLORS.accentDark, 1.2);
+        if (item.description) {
+            cursorY = drawLines(state, wrapText(doc, t(item.description), contentW, 8.15, 'normal'), xContent, cursorY + 0.9, 8.15, 'normal', PDF_COLORS.softText, 1.32);
+        }
+        if (item.tech && item.tech.length) {
+            drawTags(state, item.tech, xContent, cursorY + 1.3, contentW, {
+                fontSize: 6.8,
+                padX: 2.3,
+                tagH: 4.8,
+                gap: 1.8,
+                fill: '#ffffff',
+                stroke: '#dbe6f6',
+                text: PDF_COLORS.softText
+            });
+        }
+
+        state.y = y + height + 2.6;
+    }
+
+    function measureTagCategory(state, cat) {
+        if (!cat) return 0;
+        measureTags.doc = state.doc;
+        return 4.4 + measureTags(cat.tags, state.contentW, 8, 2.8, 5.5, 2) + 4;
+    }
+
+    function drawTagCategory(state, cat) {
+        var height = measureTagCategory(state, cat);
+        ensureSpace(state, height);
+
+        setFont(state.doc, 7.2, 'bold', PDF_COLORS.muted);
+        state.doc.text(cleanText(t(cat.label)).toUpperCase(), state.marginL, state.y);
+        state.y = drawTags(state, cat.tags, state.marginL, state.y + 2.3, state.contentW, {
+            fontSize: 8,
+            padX: 2.8,
+            tagH: 5.5,
+            gap: 2,
+            fill: PDF_COLORS.surface,
+            stroke: PDF_COLORS.lightRule,
+            text: PDF_COLORS.softText
+        }) + 4;
+    }
+
+    function measureRepoCard(state, item, width) {
+        var descLines = wrapText(state.doc, t(item.description), width - 8, 8, 'normal');
+        return 15.8 + descLines.length * lineHeight(8, 1.25);
+    }
+
+    function measureRepoRow(state, rowItems) {
+        if (!rowItems.length) return 0;
+        var gap = 4;
+        var width = (state.contentW - gap) / 2;
+        var max = 0;
+        rowItems.forEach(function (item) {
+            max = Math.max(max, measureRepoCard(state, item, width));
+        });
+        return max + 4;
+    }
+
+    function drawRepoCard(state, item, x, y, width, height) {
+        var doc = state.doc;
+        setFillColor(doc, '#ffffff');
+        setDrawColor(doc, PDF_COLORS.lightRule);
+        doc.setLineWidth(0.25);
+        doc.roundedRect(x, y, width, height, 2, 2, 'FD');
+
+        setFont(doc, 8.8, 'bold', PDF_COLORS.text);
+        doc.text(item.name, x + 4, y + 5.2);
+
+        setFont(doc, 6.6, 'bold', PDF_COLORS.accentDark);
+        var langWidth = doc.getTextWidth(item.lang) + 5;
+        setFillColor(doc, PDF_COLORS.tagFill);
+        setDrawColor(doc, '#d6e5ff');
+        doc.roundedRect(x + width - langWidth - 4, y + 2.3, langWidth, 4.6, 1.3, 1.3, 'FD');
+        setFont(doc, 6.6, 'bold', PDF_COLORS.accentDark);
+        doc.text(item.lang, x + width - langWidth - 1.5, y + 5.55);
+
+        drawLines(state, wrapText(doc, t(item.description), width - 8, 8, 'normal'), x + 4, y + 11.1, 8, 'normal', PDF_COLORS.softText, 1.25);
+        setFont(doc, 7, 'normal', PDF_COLORS.muted);
+        doc.text(item.stars + ' stars', x + 4, y + height - 4.2);
+    }
+
+    function drawRepos(state, section) {
+        var gap = 4;
+        var width = (state.contentW - gap) / 2;
+        for (var i = 0; i < section.items.length; i += 2) {
+            var row = section.items.slice(i, i + 2);
+            var rowHeight = measureRepoRow(state, row);
+            ensureSpace(state, rowHeight);
+            for (var j = 0; j < row.length; j++) {
+                drawRepoCard(state, row[j], state.marginL + j * (width + gap), state.y, width, rowHeight - 4);
+            }
+            state.y += rowHeight;
+        }
+    }
+
+    function drawSection(state, section) {
+        ensureSpace(state, sectionStartHeight(state, section));
+        drawSectionHeading(state, section.label);
+
+        switch (section.type) {
+            case 'text':
+                drawTextSection(state, section);
+                break;
+            case 'timeline':
+                sortItemsByDateDesc(section.items).forEach(function (item) {
+                    drawTimelineItem(state, item);
+                });
+                break;
+            case 'projects':
+                sortItemsByDateDesc(section.items).forEach(function (item) {
+                    drawProjectItem(state, item);
+                });
+                break;
+            case 'tags':
+                section.categories.forEach(function (cat) {
+                    drawTagCategory(state, cat);
+                });
+                break;
+            case 'repos':
+                drawRepos(state, section);
+                break;
+        }
+    }
+
+    function selectedSections(selectedKeys) {
         var orderedSections = [];
         for (var i = 0; i < sectionOrder.length; i++) {
             var key = sectionOrder[i];
@@ -210,152 +697,50 @@
                 }
             }
         }
-
-        var html = '';
-
-        // Contenitore A4
-        html += '<div style="font-family: Inter, Helvetica, Arial, sans-serif; width: 210mm; padding: 18mm 20mm; color: #1a1a1a; font-size: 10pt; line-height: 1.55; box-sizing: border-box;">';
-
-        // --- Header ---
-        html += '<div style="display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 14px; border-bottom: 2.5px solid #0066ff; margin-bottom: 18px;">';
-        html += '<div>';
-        html += '<div style="font-size: 24pt; font-weight: 700; color: #0066ff; letter-spacing: -0.5px; margin: 0; line-height: 1.1;">' + m.name + '</div>';
-        html += '<div style="font-size: 12pt; color: #555; margin-top: 4px; font-weight: 400;">' + t(m.title) + '</div>';
-        html += '</div>';
-        html += '<div style="text-align: right; font-size: 8.5pt; color: #666; line-height: 2;">';
-        html += '<div>' + m.phone + '</div>';
-        html += '<div>' + m.email + '</div>';
-        if (m.pec) { html += '<div>' + m.pec + ' (PEC)</div>'; }
-        html += '<div>' + m.location + '</div>';
-        html += '<div>' + m.website + '</div>';
-        html += '<div>' + m.github + '</div>';
-        html += '<div>' + m.linkedin + '</div>';
-        html += '</div>';
-        html += '</div>';
-
-        // --- Sezioni nell'ordine scelto ---
-        orderedSections.forEach(function (section) {
-            html += renderSection(section);
-        });
-
-        html += '</div>';
-        return html;
+        return orderedSections;
     }
 
-    function sectionHeading(label) {
-        return '<div style="font-size: 10pt; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #0066ff; border-bottom: 1px solid #ddd; padding-bottom: 4px; margin: 20px 0 10px;">' + t(label) + '</div>';
-    }
-
-    function renderSection(section) {
-        var html = sectionHeading(section.label);
-
-        switch (section.type) {
-            case 'text':
-                html += '<p style="font-size: 9.5pt; color: #333; line-height: 1.65; margin: 0;">' + t(section.content) + '</p>';
-                break;
-
-            case 'timeline':
-                section.items.forEach(function (item) {
-                    var logoImg = item.logo ? '<img src="' + item.logo + '" alt="" style="width: 14px; height: 14px; object-fit: contain; vertical-align: middle; margin-right: 5px; border-radius: 2px;">' : '';
-                    html += '<div style="margin-bottom: 12px; page-break-inside: avoid;">';
-                    html += '<div style="display: flex; justify-content: space-between; align-items: baseline;">';
-                    html += '<span style="font-size: 10pt; font-weight: 600; color: #1a1a1a;">' + t(item.title) + '</span>';
-                    html += '<span style="font-size: 8pt; color: #999; font-family: \'JetBrains Mono\', monospace; white-space: nowrap; margin-left: 12px;">' + t(item.date) + '</span>';
-                    html += '</div>';
-                    html += '<div style="font-size: 9pt; color: #0066ff; font-weight: 500; margin-top: 1px;">' + logoImg + t(item.company) + '</div>';
-                    if (item.description) {
-                        html += '<div style="font-size: 9pt; color: #555; margin-top: 3px; line-height: 1.5;">' + t(item.description) + '</div>';
-                    }
-                    html += '</div>';
-                });
-                break;
-
-            case 'projects':
-                section.items.forEach(function (item) {
-                    var logoImg = item.logo ? '<img src="' + item.logo + '" alt="" style="width: 14px; height: 14px; object-fit: contain; vertical-align: middle; margin-right: 5px; border-radius: 2px;">' : '';
-                    html += '<div style="margin-bottom: 12px; page-break-inside: avoid;">';
-                    html += '<div style="display: flex; justify-content: space-between; align-items: baseline;">';
-                    html += '<span style="font-size: 10pt; font-weight: 600; color: #1a1a1a;">' + t(item.title) + '</span>';
-                    html += '<span style="font-size: 8pt; color: #999; font-family: \'JetBrains Mono\', monospace; white-space: nowrap; margin-left: 12px;">' + t(item.date) + '</span>';
-                    html += '</div>';
-                    html += '<div style="font-size: 9pt; color: #0066ff; font-weight: 500; margin-top: 1px;">' + logoImg + t(item.client) + '</div>';
-                    if (item.description) {
-                        html += '<div style="font-size: 9pt; color: #555; margin-top: 3px; line-height: 1.5;">' + t(item.description) + '</div>';
-                    }
-                    if (item.tech && item.tech.length) {
-                        html += '<div style="margin-top: 5px; display: flex; flex-wrap: wrap; gap: 4px;">';
-                        item.tech.forEach(function (tag) {
-                            html += '<span style="font-size: 7.5pt; padding: 2px 7px; background: #f0f4ff; border: 1px solid #dde4f0; border-radius: 3px; color: #444; font-family: \'JetBrains Mono\', monospace;">' + t(tag) + '</span>';
-                        });
-                        html += '</div>';
-                    }
-                    html += '</div>';
-                });
-                break;
-
-            case 'tags':
-                section.categories.forEach(function (cat) {
-                    html += '<div style="margin-bottom: 10px;">';
-                    html += '<div style="font-size: 8pt; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #999; margin-bottom: 5px;">' + t(cat.label) + '</div>';
-                    html += '<div style="display: flex; flex-wrap: wrap; gap: 4px;">';
-                    cat.tags.forEach(function (tag) {
-                        html += '<span style="font-size: 8.5pt; padding: 3px 9px; background: #f5f5f5; border: 1px solid #e4e4e7; border-radius: 4px; color: #333;">' + tag + '</span>';
-                    });
-                    html += '</div>';
-                    html += '</div>';
-                });
-                break;
-
-            case 'repos':
-                html += '<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">';
-                section.items.forEach(function (item) {
-                    html += '<div style="padding: 10px 12px; border: 1px solid #e4e4e7; border-radius: 6px; page-break-inside: avoid;">';
-                    html += '<div style="display: flex; align-items: center; gap: 6px;">';
-                    html += '<span style="font-size: 10pt; font-weight: 600;">' + item.name + '</span>';
-                    html += '<span style="font-size: 7.5pt; padding: 1px 6px; background: #f0f4ff; border-radius: 3px; color: #0066ff; font-weight: 500;">' + item.lang + '</span>';
-                    html += '</div>';
-                    html += '<div style="font-size: 8.5pt; color: #555; margin-top: 3px;">' + t(item.description) + '</div>';
-                    html += '<div style="font-size: 7.5pt; color: #999; margin-top: 4px;">&#9733; ' + item.stars + '</div>';
-                    html += '</div>';
-                });
-                html += '</div>';
-                break;
+    function drawFooters(state) {
+        var doc = state.doc;
+        var total = doc.getNumberOfPages();
+        for (var i = 1; i <= total; i++) {
+            doc.setPage(i);
+            setDrawColor(doc, PDF_COLORS.lightRule);
+            doc.setLineWidth(0.2);
+            doc.line(state.marginL, state.pageH - 12, state.pageW - state.marginR, state.pageH - 12);
+            setFont(doc, 7, 'normal', PDF_COLORS.muted);
+            doc.text(String(i) + ' / ' + String(total), state.pageW - state.marginR, state.pageH - 7.2, { align: 'right' });
         }
-
-        return html;
     }
 
     // --- Generazione PDF ---
     function generatePdf(selectedKeys) {
-        var template = document.getElementById('cv-template');
-        template.innerHTML = buildCvHtml(selectedKeys);
+        return new Promise(function (resolve, reject) {
+            try {
+                var JsPDF = window.jspdf && window.jspdf.jsPDF;
+                if (!JsPDF) throw new Error('jsPDF non disponibile');
 
-        // Posiziona visibilmente per html2canvas ma non visibile all'utente
-        template.style.position = 'fixed';
-        template.style.left = '0';
-        template.style.top = '0';
-        template.style.zIndex = '-9999';
-        template.style.opacity = '0';
-        template.style.pointerEvents = 'none';
+                var doc = new JsPDF({ unit: 'mm', format: 'a4', orientation: 'portrait', compress: true });
+                var state = createPdfState(doc);
+                var filename = 'Tommaso_Patriti_CV_' + cvLang.toUpperCase() + '.pdf';
 
-        var filename = 'Tommaso_Patriti_CV_' + cvLang.toUpperCase() + '.pdf';
+                doc.setDocumentProperties({
+                    title: 'Tommaso Patriti CV',
+                    subject: 'Curriculum Vitae',
+                    author: CV_DATA.meta.name
+                });
 
-        var opt = {
-            margin: 0,
-            filename: filename,
-            image: { type: 'jpeg', quality: 0.98 },
-            html2canvas: { scale: 2, useCORS: true, letterRendering: true },
-            jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
-            pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
-        };
+                drawHeader(state);
+                selectedSections(selectedKeys).forEach(function (section) {
+                    drawSection(state, section);
+                });
+                drawFooters(state);
 
-        return html2pdf().set(opt).from(template.firstElementChild).save().then(function () {
-            template.style.position = 'absolute';
-            template.style.left = '-9999px';
-            template.style.opacity = '';
-            template.style.zIndex = '';
-            template.style.pointerEvents = '';
-            template.innerHTML = '';
+                doc.save(filename);
+                resolve();
+            } catch (err) {
+                reject(err);
+            }
         });
     }
 
@@ -457,20 +842,22 @@
                 btnIcon = spinner;
             }
 
+            function restoreGenerateButton() {
+                generateBtn.disabled = false;
+                if (btnSpan) btnSpan.textContent = sl === 'it' ? 'Scarica PDF' : 'Download PDF';
+                if (btnIcon) {
+                    var icon = document.createElement('i');
+                    icon.setAttribute('data-lucide', 'download');
+                    btnIcon.replaceWith(icon);
+                    if (typeof lucide !== 'undefined') lucide.createIcons();
+                }
+            }
+
             generatePdf(selectedKeys)
-                .then(function () {
-                    generateBtn.disabled = false;
-                    if (btnSpan) btnSpan.textContent = sl === 'it' ? 'Scarica PDF' : 'Download PDF';
-                    if (btnIcon) {
-                        var icon = document.createElement('i');
-                        icon.setAttribute('data-lucide', 'download');
-                        btnIcon.replaceWith(icon);
-                        if (typeof lucide !== 'undefined') lucide.createIcons();
-                    }
-                })
-                .catch(function () {
-                    generateBtn.disabled = false;
-                    if (btnSpan) btnSpan.textContent = sl === 'it' ? 'Scarica PDF' : 'Download PDF';
+                .then(restoreGenerateButton)
+                .catch(function (err) {
+                    console.error('Errore generazione CV PDF:', err);
+                    restoreGenerateButton();
                 });
         });
     }
