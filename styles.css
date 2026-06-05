@@ -412,6 +412,8 @@ a.service-card:hover::before {
 .timeline-company { font-size: 0.9rem; color: var(--accent); margin-bottom: var(--space-xs); display: inline-flex; align-items: center; gap: 0.5rem; }
 .timeline-logo { width: 20px; height: 20px; object-fit: contain; border-radius: 4px; background: #fff; padding: 2px; border: 1px solid var(--border); flex-shrink: 0; }
 .timeline-desc { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5; }
+.timeline-desc a { color: var(--accent); font-weight: 500; text-decoration: none; }
+.timeline-desc a:hover { text-decoration: underline; }
 
 /* ==========================================================================
    Tech Stack

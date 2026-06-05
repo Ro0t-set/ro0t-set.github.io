@@ -69,7 +69,10 @@ const CV_DATA = {
                     date: "2022 — 2025",
                     title: { it: "Laurea Magistrale in Ingegneria e Scienze Informatiche", en: "Master's Degree in Computer Science and Engineering" },
                     company: { it: "Università di Bologna — 110L", en: "University of Bologna — 110L" },
-                    description: { it: "Focus su sistemi distribuiti, architetture software, machine learning. Tesi su simulazioni cloud distribuite.", en: "Focus on distributed systems, software architecture, machine learning. Thesis on distributed cloud simulations." }
+                    description: { it: "Focus su sistemi distribuiti, architetture software, machine learning. Tesi su simulazioni cloud distribuite.", en: "Focus on distributed systems, software architecture, machine learning. Thesis on distributed cloud simulations." },
+                    links: [
+                        { label: { it: "Tesi magistrale", en: "Master's thesis" }, url: "https://amslaurea.unibo.it/id/eprint/34457/" }
+                    ]
                 },
                 {
                     date: "2023",
@@ -81,7 +84,10 @@ const CV_DATA = {
                     date: "2019 — 2022",
                     title: { it: "Laurea Triennale in Ingegneria e Scienze Informatiche", en: "Bachelor's Degree in Computer Science and Engineering" },
                     company: { it: "Università di Bologna — 103", en: "University of Bologna — 103" },
-                    description: { it: "Tesi su LoRa Mesh per comunicazione IoT. Pubblicazione IEEE CCNC 2023.", en: "Thesis on LoRa Mesh for IoT communication. IEEE CCNC 2023 publication." }
+                    description: { it: "Tesi su LoRa Mesh per comunicazione IoT. Pubblicazione IEEE CCNC 2023.", en: "Thesis on LoRa Mesh for IoT communication. IEEE CCNC 2023 publication." },
+                    links: [
+                        { label: { it: "Tesi triennale", en: "Bachelor's thesis" }, url: "https://amslaurea.unibo.it/id/eprint/26462/" }
+                    ]
                 }
             ]
         },

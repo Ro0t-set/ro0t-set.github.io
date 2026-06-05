@@ -358,6 +358,29 @@
         return y;
     }
 
+    function measureItemLinks(item, size) {
+        if (!item.links || !item.links.length) return 0;
+        return item.links.length * lineHeight(size || 8.1, 1.25) + 1.4;
+    }
+
+    function drawItemLinks(state, links, x, y, size) {
+        var doc = state.doc;
+        var linkSize = size || 8.1;
+        var lh = lineHeight(linkSize, 1.25);
+        setFont(doc, linkSize, 'bold', PDF_COLORS.accentDark);
+        links.forEach(function (link) {
+            var label = cleanText(t(link.label || link.url));
+            if (typeof doc.textWithLink === 'function') {
+                doc.textWithLink(label, x, y, { url: link.url });
+            } else {
+                doc.text(label, x, y);
+                doc.link(x, y - lh + 1, doc.getTextWidth(label), lh, { url: link.url });
+            }
+            y += lh;
+        });
+        return y;
+    }
+
     function measureTags(tags, maxWidth, fontSize, padX, tagH, gap) {
         var doc = measureTags.doc;
         var x = 0;
@@ -491,7 +514,7 @@
         var titleLines = wrapText(state.doc, t(item.title), contentW, 9.4, 'bold');
         var orgLines = wrapText(state.doc, t(item.company), contentW, 8.4, 'bold');
         var descLines = item.description ? wrapText(state.doc, t(item.description), contentW, 8.25, 'normal') : [];
-        return Math.max(5, titleLines.length * lineHeight(9.4, 1.18) + orgLines.length * lineHeight(8.4, 1.2) + descLines.length * lineHeight(8.25, 1.32) + 4.5);
+        return Math.max(5, titleLines.length * lineHeight(9.4, 1.18) + orgLines.length * lineHeight(8.4, 1.2) + descLines.length * lineHeight(8.25, 1.32) + measureItemLinks(item, 8.1) + 4.5);
     }
 
     function drawTimelineItem(state, item) {
@@ -518,7 +541,10 @@
         cursorY = drawLines(state, wrapText(doc, t(item.title), contentW, 9.4, 'bold'), xContent, cursorY, 9.4, 'bold', PDF_COLORS.text, 1.18);
         cursorY = drawLines(state, wrapText(doc, t(item.company), contentW, 8.4, 'bold'), xContent, cursorY + 0.3, 8.4, 'bold', PDF_COLORS.accentDark, 1.2);
         if (item.description) {
-            drawLines(state, wrapText(doc, t(item.description), contentW, 8.25, 'normal'), xContent, cursorY + 0.9, 8.25, 'normal', PDF_COLORS.softText, 1.32);
+            cursorY = drawLines(state, wrapText(doc, t(item.description), contentW, 8.25, 'normal'), xContent, cursorY + 0.9, 8.25, 'normal', PDF_COLORS.softText, 1.32);
+        }
+        if (item.links && item.links.length) {
+            drawItemLinks(state, item.links, xContent, cursorY + 0.8, 8.1);
         }
 
         state.y = y + height + 2.5;

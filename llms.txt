@@ -21,9 +21,9 @@
 
 ## Formazione e credenziali
 
-- Laurea Magistrale in Ingegneria e Scienze Informatiche, Università di Bologna, 110L (2025)
+- Laurea Magistrale in Ingegneria e Scienze Informatiche, Università di Bologna, 110L (2025) — tesi: https://amslaurea.unibo.it/id/eprint/34457/
 - Erasmus+ Master in Data Science, UPC Barcelona (2023)
-- Laurea Triennale in Ingegneria e Scienze Informatiche, Università di Bologna, 103 (2022)
+- Laurea Triennale in Ingegneria e Scienze Informatiche, Università di Bologna, 103 (2022) — tesi: https://amslaurea.unibo.it/id/eprint/26462/
 - Pubblicazione IEEE CCNC 2023 su LoRa Mesh per IoT
 - Iscritto all'albo degli Ingegneri (titolo Ing.)
 
