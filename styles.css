@@ -489,7 +489,7 @@ a.service-card:hover::before {
 .footer { padding: var(--space-xl) var(--space-lg); text-align: center; border-top: 1px solid var(--border); margin-top: var(--space-xl); }
 .footer-main p { font-size: 0.85rem; color: var(--text-muted); }
 .footer-vat { font-family: var(--font-mono); font-size: 0.75rem !important; margin-top: var(--space-xs); }
-.footer-links { display: flex; justify-content: center; gap: var(--space-sm); margin-top: var(--space-md); }
+.footer-links { display: flex; justify-content: center; flex-wrap: wrap; gap: var(--space-xs) var(--space-sm); margin-top: var(--space-md); }
 .footer-links a { font-size: 0.8rem; color: var(--text-muted); text-decoration: none; transition: var(--transition); }
 .footer-links a:hover { color: var(--accent); }
 .footer-links span { color: var(--text-muted); }
@@ -528,11 +528,14 @@ a.service-card:hover::before {
     border: 1px solid var(--border);
     border-radius: var(--radius-md);
     box-shadow: 0 18px 45px rgba(0, 0, 0, 0.25);
+    min-width: 0;
 }
+.cookie-consent * { min-width: 0; }
 .cookie-consent-copy {
     display: flex;
     flex-direction: column;
     gap: var(--space-xs);
+    overflow-wrap: anywhere;
 }
 .cookie-consent-copy strong {
     color: var(--text-primary);
@@ -593,15 +596,39 @@ a.service-card:hover::before {
 
 @media (max-width: 720px) {
     .cookie-consent {
-        left: 16px;
-        right: 16px;
-        bottom: 16px;
+        left: 50%;
+        right: auto;
+        bottom: max(10px, env(safe-area-inset-bottom));
+        width: calc(100vw - 20px);
+        max-width: calc(100vw - 20px);
+        transform: translateX(-50%);
         flex-direction: column;
         align-items: stretch;
-        padding: var(--space-md);
+        gap: 0.85rem;
+        max-height: calc(100dvh - 20px);
+        padding: 0.9rem;
     }
-    .cookie-consent-actions { flex-direction: column-reverse; }
-    .cookie-btn { width: 100%; }
+    .cookie-consent-copy { gap: 0.35rem; }
+    .cookie-consent-copy strong { font-size: 0.9rem; }
+    .cookie-consent-copy p {
+        font-size: 0.78rem;
+        line-height: 1.4;
+    }
+    .cookie-consent-copy a { font-size: 0.76rem; }
+    .cookie-consent-actions {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 0.5rem;
+        width: 100%;
+        max-width: 100%;
+    }
+    .cookie-btn {
+        width: 100%;
+        min-height: 38px;
+        padding: 0 0.65rem;
+        font-size: 0.8rem;
+        white-space: nowrap;
+    }
     .cookie-toast {
         left: 16px;
         right: 16px;

@@ -47,15 +47,15 @@
     function copy() {
         return getLang() === 'en' ? {
             title: 'Cookie preferences',
-            body: 'This website uses technical preferences and, with your consent, analytics tools from Google Analytics and PostHog to understand visits, improve content and measure interactions.',
-            accept: 'Accept analytics',
+            body: 'We use technical preferences and, with your consent, Google Analytics and PostHog for analytics and improvements.',
+            accept: 'Accept',
             reject: 'Reject',
             privacy: 'Privacy & Cookie Policy',
             saved: 'Preference saved'
         } : {
             title: 'Preferenze cookie',
-            body: 'Questo sito usa preferenze tecniche e, con il tuo consenso, strumenti analitici di Google Analytics e PostHog per capire le visite, migliorare i contenuti e misurare le interazioni.',
-            accept: 'Accetta analytics',
+            body: 'Usiamo preferenze tecniche e, con il tuo consenso, Google Analytics e PostHog per statistiche e miglioramenti.',
+            accept: 'Accetta',
             reject: 'Rifiuta',
             privacy: 'Privacy & Cookie Policy',
             saved: 'Preferenza salvata'
