@@ -49,16 +49,6 @@
     
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
-    
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8JSLCWYJYF"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-8JSLCWYJYF');
-    </script>
-    
     <!-- Structured Data Graph: LocalBusiness + Person + WebSite + FAQPage (GBP-aligned, AI-citable) -->
     <script type="application/ld+json">
     {
@@ -862,7 +852,9 @@
             <p class="footer-vat">P.IVA 04291431205</p>
         </div>
         <div class="footer-links">
-            <a href="#privacy" id="privacyLink" data-it="Privacy Policy" data-en="Privacy Policy">Privacy Policy</a>
+            <a href="#privacy" id="privacyLink" data-it="Privacy &amp; Cookie Policy" data-en="Privacy &amp; Cookie Policy">Privacy &amp; Cookie Policy</a>
+            <span>·</span>
+            <a href="#cookie-preferences" data-cookie-preferences data-it="Preferenze cookie" data-en="Cookie preferences">Preferenze cookie</a>
             <span>·</span>
             <a href="#terms" id="termsLink" data-it="Termini e Condizioni" data-en="Terms and Conditions">Termini e Condizioni</a>
         </div>
@@ -886,24 +878,30 @@
             <button class="modal-close" id="closePrivacy" aria-label="Chiudi">
                 <i data-lucide="x"></i>
             </button>
-            <h2 data-it="Privacy Policy" data-en="Privacy Policy">Privacy Policy</h2>
+            <h2 data-it="Privacy &amp; Cookie Policy" data-en="Privacy &amp; Cookie Policy">Privacy &amp; Cookie Policy</h2>
             <div class="modal-body">
-                <p data-it="Ultimo aggiornamento: Maggio 2026" data-en="Last updated: May 2026">Ultimo aggiornamento: Maggio 2026</p>
+                <p data-it="Ultimo aggiornamento: Luglio 2026" data-en="Last updated: July 2026">Ultimo aggiornamento: Luglio 2026</p>
                 
                 <h3 data-it="Titolare del trattamento" data-en="Data Controller">Titolare del trattamento</h3>
                 <p>Tommaso Patriti<br>P.IVA 04291431205<br>Email: tommasopatriti@gmail.com<br>PEC: tommaso.patriti@ingpec.eu</p>
                 
                 <h3 data-it="Dati raccolti" data-en="Data collected">Dati raccolti</h3>
-                <p data-it="Questo sito utilizza Google Analytics per raccogliere dati anonimi sulla navigazione, inclusi:" data-en="This website uses Google Analytics to collect anonymous browsing data, including:">Questo sito utilizza Google Analytics per raccogliere dati anonimi sulla navigazione, inclusi:</p>
+                <p data-it="Questo sito utilizza Google Analytics e PostHog, solo dopo il tuo consenso, per misurare traffico, performance e interazioni con i contenuti. I dati possono includere:" data-en="This website uses Google Analytics and PostHog, only after your consent, to measure traffic, performance and content interactions. Data may include:">Questo sito utilizza Google Analytics e PostHog, solo dopo il tuo consenso, per misurare traffico, performance e interazioni con i contenuti. I dati possono includere:</p>
                 <ul>
-                    <li data-it="Pagine visitate" data-en="Pages visited">Pagine visitate</li>
-                    <li data-it="Durata della sessione" data-en="Session duration">Durata della sessione</li>
+                    <li data-it="Pagine visitate, referrer ed eventi di navigazione" data-en="Pages visited, referrer and navigation events">Pagine visitate, referrer ed eventi di navigazione</li>
+                    <li data-it="Durata della sessione e sequenza delle pagine" data-en="Session duration and page sequence">Durata della sessione e sequenza delle pagine</li>
                     <li data-it="Tipo di dispositivo e browser" data-en="Device and browser type">Tipo di dispositivo e browser</li>
-                    <li data-it="Paese di provenienza (anonimizzato)" data-en="Country of origin (anonymized)">Paese di provenienza (anonimizzato)</li>
+                    <li data-it="Paese o area geografica approssimativa" data-en="Approximate country or geographic area">Paese o area geografica approssimativa</li>
+                    <li data-it="Interazioni con pulsanti, link e sezioni del sito; PostHog può includere replay di sessione se abilitato nel progetto" data-en="Interactions with buttons, links and website sections; PostHog may include session replay if enabled in the project">Interazioni con pulsanti, link e sezioni del sito; PostHog può includere replay di sessione se abilitato nel progetto</li>
                 </ul>
+
+                <h3 data-it="Base giuridica" data-en="Legal basis">Base giuridica</h3>
+                <p data-it="Il trattamento dei dati analitici avviene sulla base del tuo consenso, che puoi accettare, rifiutare o modificare in qualsiasi momento dalle preferenze cookie." data-en="Analytics data is processed based on your consent, which you can accept, reject or change at any time from cookie preferences.">Il trattamento dei dati analitici avviene sulla base del tuo consenso, che puoi accettare, rifiutare o modificare in qualsiasi momento dalle preferenze cookie.</p>
                 
                 <h3>Cookie</h3>
-                <p data-it="Utilizziamo cookie tecnici necessari al funzionamento del sito e cookie analitici di Google Analytics. Puoi disabilitare i cookie dalle impostazioni del tuo browser." data-en="We use technical cookies necessary for the website operation and Google Analytics analytical cookies. You can disable cookies from your browser settings.">Utilizziamo cookie tecnici necessari al funzionamento del sito e cookie analitici di Google Analytics. Puoi disabilitare i cookie dalle impostazioni del tuo browser.</p>
+                <p data-it="Utilizziamo preferenze tecniche locali per tema, lingua e consenso cookie. Con il tuo consenso vengono caricati anche Google Analytics e PostHog, che possono usare cookie o identificatori locali come _ga, _ga_*, _gid e ph_* per distinguere visite e sessioni." data-en="We use local technical preferences for theme, language and cookie consent. With your consent, Google Analytics and PostHog are also loaded and may use cookies or local identifiers such as _ga, _ga_*, _gid and ph_* to distinguish visits and sessions.">Utilizziamo preferenze tecniche locali per tema, lingua e consenso cookie. Con il tuo consenso vengono caricati anche Google Analytics e PostHog, che possono usare cookie o identificatori locali come _ga, _ga_*, _gid e ph_* per distinguere visite e sessioni.</p>
+                <p data-it="PostHog è configurato tramite il reverse proxy https://t.tommasopatriti.me e interfaccia europea PostHog. Google Analytics è configurato con anonimizzazione IP." data-en="PostHog is configured through the https://t.tommasopatriti.me reverse proxy and the European PostHog interface. Google Analytics is configured with IP anonymization.">PostHog è configurato tramite il reverse proxy https://t.tommasopatriti.me e interfaccia europea PostHog. Google Analytics è configurato con anonimizzazione IP.</p>
+                <p><a href="#cookie-preferences" data-cookie-preferences data-it="Gestisci preferenze cookie" data-en="Manage cookie preferences">Gestisci preferenze cookie</a></p>
                 
                 <h3 data-it="I tuoi diritti" data-en="Your rights">I tuoi diritti</h3>
                 <p data-it="Ai sensi del GDPR hai diritto di accesso, rettifica, cancellazione e portabilità dei tuoi dati. Contattami via email per esercitare questi diritti." data-en="Under GDPR you have the right to access, rectify, delete and port your data. Contact me via email to exercise these rights.">Ai sensi del GDPR hai diritto di accesso, rettifica, cancellazione e portabilità dei tuoi dati. Contattami via email per esercitare questi diritti.</p>
@@ -971,7 +969,8 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="analytics.js"></script>
+<script src="script.js"></script>
     <script src="cv-data.js"></script>
     <script src="assets/vendor/jspdf.umd.min.js" defer></script>
     <script src="cv-generator.js" defer></script>

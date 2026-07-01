@@ -137,6 +137,16 @@
             modal.classList.remove('active');
             document.body.style.overflow = '';
         }
+
+        function openModalFromHash() {
+            if (window.location.hash === '#privacy' && privacyModal) {
+                openModal(privacyModal);
+            }
+
+            if (window.location.hash === '#terms' && termsModal) {
+                openModal(termsModal);
+            }
+        }
         
         if (privacyLink && privacyModal) {
             privacyLink.addEventListener('click', (e) => {
@@ -181,6 +191,9 @@
                 });
             }
         });
+
+        window.addEventListener('hashchange', openModalFromHash);
+        openModalFromHash();
     }
 
     // ==========================================================================

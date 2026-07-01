@@ -35,16 +35,6 @@
 
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
-
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8JSLCWYJYF"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-8JSLCWYJYF');
-    </script>
-
     <!-- Structured Data -->
     <script type="application/ld+json">
 {
@@ -383,7 +373,7 @@
 <p class="footer-contact footer-gmaps"><i data-lucide="navigation" class="footer-icon"></i><a href="https://maps.app.goo.gl/NGfcUqQhzyrYTmss9" target="_blank" rel="noopener noreferrer" data-it="Vedi su Google Maps" data-en="View on Google Maps">Vedi su Google Maps</a></p>
 </div>
 <div class="footer-main"><p>© 2026 Ing. Tommaso Patriti</p><p class="footer-vat">P.IVA 04291431205</p></div>
-<div class="footer-links"><a href="/" data-it="Torna alla home" data-en="Back to home">Torna alla home</a></div>
+<div class="footer-links"><a href="/" data-it="Torna alla home" data-en="Back to home">Torna alla home</a><span>·</span><a href="/#privacy" data-it="Privacy &amp; Cookie Policy" data-en="Privacy &amp; Cookie Policy">Privacy &amp; Cookie Policy</a><span>·</span><a href="#cookie-preferences" data-cookie-preferences data-it="Preferenze cookie" data-en="Cookie preferences">Preferenze cookie</a></div>
 </footer>
 
 <!-- Floating WhatsApp Button -->
@@ -392,7 +382,8 @@
 <span class="whatsapp-tooltip" data-it="Scrivimi su WhatsApp" data-en="Message me on WhatsApp">Scrivimi su WhatsApp</span>
 </a>
 
-    <script src="script.js"></script>
+    <script src="analytics.js"></script>
+<script src="script.js"></script>
     <script>
         const form = document.getElementById('contactForm');
         const formStatus = document.getElementById('formStatus');
