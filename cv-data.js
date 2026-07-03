@@ -106,10 +106,10 @@ const CV_DATA = {
                 },
                 {
                     date: "2026",
-                    title: { it: "Sito web content-driven e CMS", en: "Content-driven website and CMS" },
+                    title: { it: "Sito web content-driven, CMS e pagamenti online", en: "Content-driven website, CMS and online payments" },
                     client: { it: "Presa B+ — Palestra Boulder", en: "Presa B+ — Bouldering Gym" },
-                    description: { it: "Sito web performante per palestra boulder con architettura Astro content-driven, componenti React mirati, Tailwind CSS, CMS Keystatic, contenuti Markdoc, integrazione Cloudflare e attenzione a SEO, internazionalizzazione e gestione editoriale.", en: "High-performance website for a bouldering gym with content-driven Astro architecture, targeted React components, Tailwind CSS, Keystatic CMS, Markdoc content, Cloudflare integration and a strong focus on SEO, internationalization and editorial workflows." },
-                    tech: ["Astro 5", "TypeScript", "React", "Tailwind CSS", "Keystatic CMS", "Markdoc", "Cloudflare", "D3 Delaunay", "SEO", "i18n"],
+                    description: { it: "Sito web performante per palestra boulder con architettura Astro content-driven, componenti React mirati, Tailwind CSS, CMS Keystatic e contenuti Markdoc. Include modulo di iscrizione AICS con pagamento online tramite SumUp, integrazione Cloudflare e attenzione a SEO, internazionalizzazione e gestione editoriale.", en: "High-performance website for a bouldering gym with content-driven Astro architecture, targeted React components, Tailwind CSS, Keystatic CMS and Markdoc content. Includes an AICS membership registration module with online payment via SumUp, Cloudflare integration and a strong focus on SEO, internationalization and editorial workflows." },
+                    tech: ["Astro 5", "TypeScript", "React", "Tailwind CSS", "Keystatic CMS", "Markdoc", "Cloudflare", "D3 Delaunay", "SumUp", { it: "Pagamenti online", en: "Online Payments" }, "AICS", "SEO", "i18n"],
                     logo: "assets/logos/presabpiu.svg"
                 },
                 {

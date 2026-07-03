@@ -54,7 +54,7 @@
 ## Progetti freelance rappresentativi
 
 - **IDEM Srl (2026)** — Sviluppatore Android (Kotlin, Android SDK, RabbitMQ, Architettura Esagonale, Scrum)
-- **Presa B+ (2026)** — Frontend del sito della palestra boulder a Bologna (Astro, TypeScript, Tailwind)
+- **Presa B+ (2026)** — Sito Astro content-driven per palestra boulder a Bologna con CMS, modulo iscrizione AICS e pagamenti online tramite SumUp
 - **Nowhere Solutions & Web (2025–2026)** — Client web Angular production-ready
 - **AgriMercati (2025)** — Piattaforma di aggregazione prezzi commodity agricole italiane, OCR AI-based, app mobile multipiattaforma, assistente LLM
 - **Elaria (2025)** — Microservizi Spring Boot + Docker Swarm + Traefik + Keycloak
