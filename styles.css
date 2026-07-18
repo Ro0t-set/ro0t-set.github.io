@@ -58,7 +58,11 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+html {
+    scroll-behavior: smooth;
+    max-width: 100%;
+    overflow-x: hidden;
+}
 body {
     font-family: var(--font-main);
     background: var(--bg-primary);
@@ -68,6 +72,11 @@ body {
     -webkit-font-smoothing: antialiased;
     position: relative;
     overflow-x: hidden;
+}
+
+@supports (overflow: clip) {
+    html,
+    body { overflow-x: clip; }
 }
 body::before {
     content: '';
@@ -726,7 +735,7 @@ a.service-card:hover .service-icon { transform: translateY(-2px) rotate(-6deg); 
    Responsive
    ========================================================================== */
 
-@media (max-width: 768px) {
+@media (max-width: 768px), (hover: none) and (pointer: coarse) {
     .hero { grid-template-columns: 1fr; text-align: center; }
     .hero-content { align-items: center; width: 100%; min-width: 0; }
     .hero-visual {
@@ -739,14 +748,39 @@ a.service-card:hover .service-icon { transform: translateY(-2px) rotate(-6deg); 
     .status { justify-content: center; }
     .hero-links { justify-content: center; width: 100%; }
     .services-grid, .projects-grid { grid-template-columns: 1fr; }
-    .top-nav { padding: var(--space-sm); }
-    main { padding-left: var(--space-sm); padding-right: var(--space-sm); }
+    .top-nav {
+        padding: var(--space-sm);
+        transition: background var(--transition), border-color var(--transition);
+    }
+    .top-nav.scrolled {
+        background: var(--bg-primary);
+        -webkit-backdrop-filter: none;
+        backdrop-filter: none;
+    }
+    main {
+        padding-top: calc(64px + var(--space-sm));
+        padding-left: var(--space-sm);
+        padding-right: var(--space-sm);
+    }
     .name { font-size: clamp(2.6rem, 13vw, 4rem); }
+
+    /* Avoid repainting a large fixed gradient while the mobile browser chrome moves. */
+    body::before {
+        position: absolute;
+        width: 100%;
+        height: 32rem;
+        transform: translateX(-50%);
+    }
 }
 
 @media (max-width: 480px) {
     .contact-links { flex-direction: column; }
-    .contact-link { justify-content: center; }
+    .contact-link {
+        justify-content: center;
+        max-width: 100%;
+        text-align: center;
+        overflow-wrap: anywhere;
+    }
     .hero-links .btn { flex: 1 1 calc(50% - var(--space-sm)); min-width: 140px; padding: 0.75rem 0.75rem; }
 }
 
@@ -857,11 +891,20 @@ a.service-card:hover .service-icon { transform: translateY(-2px) rotate(-6deg); 
 .terminal-output .highlight { color: #e0b04f; }
 
 /* Responsive terminal */
-@media (max-width: 768px) {
+@media (max-width: 768px), (hover: none) and (pointer: coarse) {
     .terminal-widget {
+        width: 100%;
         max-width: 100%;
+        min-width: 0;
         margin-top: var(--space-md);
     }
+
+    .terminal-line,
+    .terminal-command,
+    .terminal-output { min-width: 0; }
+
+    .terminal-command,
+    .terminal-output { overflow-wrap: anywhere; }
 }
 
 /* ==========================================================================
@@ -1119,22 +1162,60 @@ a.service-card:hover .service-icon { transform: translateY(-2px) rotate(-6deg); 
     font-size: 0.95rem;
 }
 
-/* On home the JS scrub engine drives stagger children directly */
-.home .reveal-stagger > * {
-    transition: none;
+/* On desktop the JS scrub engine drives stagger children directly. */
+@media (min-width: 769px) {
+    .home .reveal-stagger > * { transition: none; }
 }
 
-@media (max-width: 768px) {
-    .scene-sticky { height: 150vh; }
-    .home .section { margin-bottom: 14vh; }
-    .section--finale { min-height: 90vh; }
+@media (max-width: 768px), (hover: none) and (pointer: coarse) {
+    /*
+       Mobile uses normal document flow. Dynamic vh + sticky transforms caused
+       visible jumps when Safari/Chrome collapsed their address bars.
+    */
+    .scene-sticky { height: auto; }
+    .home .section { margin-bottom: clamp(4.5rem, 16vw, 6rem); }
+    .section--finale {
+        min-height: 0;
+        padding: var(--space-2xl) 0;
+    }
     .home .hero {
+        position: relative;
+        top: auto;
+        min-height: 0;
         flex-direction: column;
         justify-content: center;
         gap: var(--space-lg);
-        padding-bottom: 4rem;
+        padding: var(--space-md) 0 var(--space-2xl);
+        animation: mobile-hero-arrive 0.55s ease-out both;
     }
     .home .hero-content { flex: 0; }
+    .home .hero-content,
+    .home .hero-visual,
+    .home .section-title,
+    .section--finale .section-text {
+        will-change: auto;
+        transform: none;
+    }
+    .scroll-hint { display: none; }
+
+    /* Keep reveals subtle and compositor-friendly on touch devices. */
+    .reveal {
+        transform: none;
+        transition-property: opacity;
+        transition-duration: 0.55s;
+    }
+    .reveal.visible { transform: none; }
+    .reveal-stagger > * {
+        transform: none;
+        transition-property: opacity;
+        transition-duration: 0.5s;
+    }
+    .reveal-stagger.visible > * { transform: none; }
+}
+
+@keyframes mobile-hero-arrive {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 /* Accessibility */
@@ -1264,12 +1345,13 @@ a.service-card:hover .service-icon { transform: translateY(-2px) rotate(-6deg); 
     50% { box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4), 0 0 0 14px rgba(37, 211, 102, 0); }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px), (hover: none) and (pointer: coarse) {
     .whatsapp-float {
         bottom: 16px;
         right: 16px;
         width: 52px;
         height: 52px;
+        animation: none;
     }
     .whatsapp-float svg { width: 28px; height: 28px; }
     .whatsapp-tooltip { display: none; }

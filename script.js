@@ -6,6 +6,8 @@
 (function() {
     'use strict';
 
+    const isMobileViewport = () => window.matchMedia('(max-width: 768px), (hover: none) and (pointer: coarse)').matches;
+
     // ==========================================================================
     // Theme Toggle
     // ==========================================================================
@@ -229,6 +231,15 @@
 
         if (!commandEl || !outputEl) return;
 
+        // Continuous typing mutates layout while scrolling. Keep the mobile hero
+        // stable and reserve the animated terminal for larger viewports.
+        if (isMobileViewport()) {
+            commandEl.textContent = terminalCommands[0].cmd;
+            outputEl.innerHTML = terminalCommands[0].output;
+            outputEl.classList.add('visible');
+            return;
+        }
+
         let currentIndex = 0;
 
         function typeCommand(text, callback) {
@@ -318,6 +329,31 @@
         if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
         const progressBar = document.querySelector('.scroll-progress');
+
+        // The full scrub engine performs many layout reads and transforms per
+        // frame. Mobile gets a lightweight progress update and normal page flow.
+        if (isMobileViewport()) {
+            let framePending = false;
+
+            const updateProgress = () => {
+                const max = document.documentElement.scrollHeight - window.innerHeight;
+                const progress = max > 0 ? Math.min(Math.max(window.scrollY / max, 0), 1) : 0;
+                if (progressBar) progressBar.style.transform = `scaleX(${progress})`;
+                framePending = false;
+            };
+
+            const requestProgressUpdate = () => {
+                if (framePending) return;
+                framePending = true;
+                requestAnimationFrame(updateProgress);
+            };
+
+            updateProgress();
+            window.addEventListener('scroll', requestProgressUpdate, { passive: true });
+            window.addEventListener('resize', requestProgressUpdate, { passive: true });
+            return;
+        }
+
         const heroScene = document.querySelector('.scene-sticky');
         const heroContent = document.querySelector('.hero-content');
         const heroVisual = document.querySelector('.hero-visual');
