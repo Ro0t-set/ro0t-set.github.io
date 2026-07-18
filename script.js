@@ -295,6 +295,158 @@
     }
 
     // ==========================================================================
+    // Nav — hairline & blur after scroll (all pages)
+    // ==========================================================================
+
+    function initNavScroll() {
+        const nav = document.querySelector('.top-nav');
+        if (!nav) return;
+
+        const update = () => nav.classList.toggle('scrolled', window.scrollY > 24);
+        update();
+        window.addEventListener('scroll', update, { passive: true });
+    }
+
+    // ==========================================================================
+    // Immersive scene engine (home only)
+    // Sticky hero fly-through, pinned titles with zoom-through, card scrub,
+    // conversion finale zoom, scene dots, progress hairline, glow parallax.
+    // ==========================================================================
+
+    function initCinematic() {
+        if (!document.body.classList.contains('home')) return;
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+        const progressBar = document.querySelector('.scroll-progress');
+        const heroScene = document.querySelector('.scene-sticky');
+        const heroContent = document.querySelector('.hero-content');
+        const heroVisual = document.querySelector('.hero-visual');
+        const scrollHint = document.querySelector('.scroll-hint');
+        const titleEls = Array.from(document.querySelectorAll('.section-title'));
+        const finaleText = document.querySelector('.section--finale .section-text');
+        const scrubEls = Array.from(document.querySelectorAll('.reveal-stagger > *'));
+        const dots = Array.from(document.querySelectorAll('.scene-dots a'))
+            .map(a => ({ link: a, el: document.getElementById(a.dataset.dot) }))
+            .filter(d => d.el);
+
+        const clamp = (v, min, max) => Math.min(Math.max(v, min), max);
+        const easeOut = (t) => 1 - Math.pow(1 - t, 3);
+
+        let target = window.scrollY;
+        let smooth = target;
+        let ticking = true;
+
+        window.addEventListener('scroll', () => {
+            target = window.scrollY;
+            if (!ticking) {
+                ticking = true;
+                requestAnimationFrame(loop);
+            }
+        }, { passive: true });
+
+        function loop() {
+            smooth += (target - smooth) * 0.12;
+            if (Math.abs(target - smooth) < 0.05) smooth = target;
+
+            const vh = window.innerHeight;
+
+            // Progress hairline
+            if (progressBar) {
+                const max = document.documentElement.scrollHeight - vh;
+                progressBar.style.transform = `scaleX(${max > 0 ? clamp(smooth / max, 0, 1) : 0})`;
+            }
+
+            // Ambient glow drifts with scroll (depth)
+            document.body.style.setProperty('--glow-y', `${smooth * -0.12}px`);
+
+            // Scene 1 — hero: camera flies into it, then through it
+            if (heroScene && heroContent) {
+                const range = heroScene.offsetHeight - vh;
+                const hp = clamp(-heroScene.getBoundingClientRect().top / (range || 1), 0, 1);
+                if (hp < 1) {
+                    heroContent.style.transform = `scale(${1 + hp * 0.65}) translateY(${hp * -34}px)`;
+                    heroContent.style.opacity = String(clamp(1 - hp * 1.7, 0, 1));
+                    if (heroVisual) {
+                        heroVisual.style.transform = `scale(${1 + hp * 0.35}) translateY(${hp * 80}px)`;
+                        heroVisual.style.opacity = String(clamp(1 - hp * 2, 0, 1));
+                    }
+                }
+                if (scrollHint) {
+                    scrollHint.style.opacity = String(clamp(1 - hp * 5, 0, 1));
+                }
+            }
+
+            // Pinned titles: gentle on arrival, dramatic zoom-through on exit
+            titleEls.forEach(el => {
+                const r = el.getBoundingClientRect();
+                if (r.bottom < -80 || r.top > vh + 80) return;
+                const t = (r.top + r.height / 2 - vh * 0.5) / vh; // 0 = centered
+                const scale = t < 0
+                    ? clamp(1 + t * 0.16, 0.92, 1)
+                    : clamp(1 + t * 0.55, 1, 1.28);
+                const fade = 1 - clamp((Math.abs(t) - 0.4) / 0.3, 0, 1) * 0.9;
+                el.style.transform = `scale(${scale})`;
+                el.style.opacity = String(fade);
+            });
+
+            // Finale: the pitch grows toward the camera
+            if (finaleText) {
+                const r = finaleText.getBoundingClientRect();
+                if (r.bottom > 0 && r.top < vh) {
+                    const t = (r.top + r.height / 2 - vh * 0.5) / vh;
+                    const scale = clamp(1 + t * 0.3, 0.86, 1.1);
+                    const fade = 1 - clamp((Math.abs(t) - 0.42) / 0.3, 0, 1) * 0.9;
+                    finaleText.style.transform = `scale(${scale})`;
+                    finaleText.style.opacity = String(fade);
+                }
+            }
+
+            // Card scrub reveals
+            scrubEls.forEach(el => {
+                const r = el.getBoundingClientRect();
+                if (r.bottom < -120 || r.top > vh + 120) return;
+                const p = easeOut(clamp((vh - r.top) / (vh * 0.32), 0, 1));
+                el.style.opacity = String(p);
+                el.style.transform = `translateY(${(1 - p) * 44}px) scale(${0.94 + p * 0.06})`;
+            });
+
+            // Scene dots
+            if (dots.length) {
+                let current = dots[0];
+                dots.forEach(d => {
+                    if (d.el.getBoundingClientRect().top <= vh * 0.45) current = d;
+                });
+                dots.forEach(d => d.link.classList.toggle('active', d === current));
+            }
+
+            if (Math.abs(target - smooth) >= 0.05) {
+                requestAnimationFrame(loop);
+            } else {
+                ticking = false;
+            }
+        }
+
+        requestAnimationFrame(loop);
+    }
+
+    // ==========================================================================
+    // Card spotlight — cursor-following warm glow (home only, fine pointers)
+    // ==========================================================================
+
+    function initSpotlight() {
+        if (!document.body.classList.contains('home')) return;
+        if (!window.matchMedia('(pointer: fine)').matches) return;
+
+        document.querySelectorAll('.freelance-card, .service-card, .project-card').forEach(card => {
+            card.addEventListener('pointermove', (e) => {
+                const rect = card.getBoundingClientRect();
+                card.style.setProperty('--mx', `${e.clientX - rect.left}px`);
+                card.style.setProperty('--my', `${e.clientY - rect.top}px`);
+            });
+        });
+    }
+
+    // ==========================================================================
     // Initialize
     // ==========================================================================
 
@@ -304,6 +456,9 @@
         initModals();
         initTerminal();
         initScrollReveal();
+        initNavScroll();
+        initCinematic();
+        initSpotlight();
 
         // Initialize Lucide icons
         if (typeof lucide !== 'undefined') {
